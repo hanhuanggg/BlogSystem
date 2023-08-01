@@ -1,0 +1,51 @@
+/* 这个文件用来写博客编辑页的样式 */
+
+.blog-edit-container {
+    width: 1000px;
+    height: calc(100% - 50px);
+    margin: 0 auto;
+}
+
+.blog-edit-container .title {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#title {
+    height: 40px;
+    width: 895px;
+    border: none;
+    padding-left: 5px;
+    font-size: 20px;
+    border-radius: 5px;
+    /* 去掉轮廓线. 鼠标选中后黑圈 */
+    outline: none;
+    /* 设置背景半透明 */
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* 获取到焦点 */
+#title:focus {
+    background-color: rgb(255, 255, 255);
+}
+
+#submit {
+    height: 40px;
+    width: 100px;
+    color: white;
+    background-color: orange;
+    border-radius: 5px;
+    border: none;
+}
+
+#submit:active {
+    background-color: #666;
+}
+
+#editor {
+    border-radius: 10px;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    opacity: 80%;
+}

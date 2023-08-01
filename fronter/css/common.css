@@ -1,0 +1,146 @@
+/* 写样式的起手式, 先去除浏览器的公共样式. 并且设置 border-box, 避免元素盒子被内边距和边框撑大 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    /* 
+        html 是页面的最顶层元素. 高度 100% 是相对父元素来说高度是 100% (和父元素一样高)
+        对于 html 标签来说, 父元素就是浏览器窗口. 浏览器窗口多高, html 就多高. 
+        body 的父亲是 html. 设为 100% 意思是 body 和 html 一样高. 
+        此时, body 和 html 的高度都是和浏览器窗口一样高的~~
+
+        如果不设置高度, 此时元素的默认高度取决于内部的内容. 
+    */
+    height: 100%;
+}
+
+body {
+    /* 相对路径的基准路径就是当前文件所在路径!! */
+    background-image: url(../image/background.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* 实现导航栏的样式 */
+.nav {
+    /* 设置宽度和父元素一样宽 */
+    /* 块级元素来说, 默认就是 width: 100% */
+    width: 100%;
+    /* 设置高度是 50px */
+    height: 50px;
+    background-color: rgba(50, 50, 50, 0.4);
+    color: white;
+
+    /* 导航栏里面的元素都是水平排列, 弹性布局来设置 */
+    display: flex;
+    /* 垂直方向子元素居中 */
+    align-items: center;
+}
+
+.nav img {
+    width: 40px;
+    height: 40px;
+    margin-left: 30px;
+    margin-right: 10px;
+    /* 让元素变圆. 把内切圆半径设置为宽度的一半, 就正好是一个圆形.  */
+    border-radius: 50%;
+}
+
+.nav .spacer {
+    width: 70%;
+}
+
+.nav a {
+    color: white;
+    /* 去掉下划线 */
+    text-decoration: none;
+    /* 为了让这几个 a 标签不要贴的这么紧凑, 加上个内边距. 
+       此处使用外边距也行, 内边距更好. 内边距也是元素的内容, 可以增大用户点击的面积 */
+    padding: 0 10px;
+}
+
+/* 编写页面主体样式 */
+.container {
+    /* 设置主体部分宽度 1000px */
+    width: 1000px;
+    /* 高度能够填充整个页面 */
+    height: calc(100% - 50px);
+    /* 水平居中 */
+    margin: 0 auto;
+    /* 为了方便看效果, 临时加上个背景色. 后面再去掉 */
+    /* background-color: blue; */
+
+    /* 弹性布局 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-left {
+    /* 尺寸写 百分数, 是相对于父元素为基准 */
+    height: 100%;
+    width: 200px;
+
+    /* background-color: red; */
+}
+
+.container-right {
+    height: 100%;
+    /* 此处不设置为 800, 而是留出 5px 作为中缝 */
+    width: 795px;
+
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+
+    /* 让这个元素自己能带上滚动条 */
+    /* 这个属性表示, 内容没有溢出, 无滚动条; 如果内容溢出了, 则自动加上滚动条 */
+    overflow: auto;
+}
+
+/* 左侧用户信息 */
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    /* 设置内边距, 让内容和边框之间有点距离 */
+    padding: 30px;
+}
+
+/* 用户头像 */
+.card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+
+/* 用户名字 */
+.card h3 {
+    /* 让文字水平居中 */
+    text-align: center;
+    /* 让文字和上下都有边距 */
+    /* 使用内边距或者外边距均可~~ 更倾向于使用内边距 */
+    /* 因为外边距有的时候有坑!!! */
+    padding: 10px;
+}
+
+/* 用户的 github 链接 */
+.card a {
+    /* a 标签是行内元素. 行内元素的很多东西比较膈应 */
+    text-align: center;
+    /* 为了配合上述样式, 设置成块级元素即可 */
+    display: block;
+    color: #777;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.card .counter {
+    /* 为了让里面的元素水平排列, 使用弹性布局 */
+    display: flex;
+    justify-content: space-around;
+    /* 让元素之间有点距离感 */
+    padding: 5px;
+}
