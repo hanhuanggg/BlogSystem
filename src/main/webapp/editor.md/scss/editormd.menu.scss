@@ -19,7 +19,7 @@
             border-right: 1px solid $borderColor;
         }
 
-        > a {
+        > Blog {
             outline: 0;
             color: $color;
             display: inline-block;
@@ -54,7 +54,7 @@
         }
     }
 
-    > li + li > a {
+    > li + li > Blog {
         margin-left: 3px;
     }
 }
@@ -94,7 +94,7 @@
 
     > li {
         
-        > a {
+        > Blog {
             color: $color;
             display: block;
             text-decoration: none;

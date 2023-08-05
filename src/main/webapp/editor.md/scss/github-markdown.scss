@@ -18,12 +18,12 @@
   word-wrap: break-word;
 }
 
-.markdown-body a {
+.markdown-body Blog {
   background: transparent;
 }
 
-.markdown-body a:active,
-.markdown-body a:hover {
+.markdown-body Blog:active,
+.markdown-body Blog:hover {
   outline: 0;
 }
 
@@ -96,13 +96,13 @@
   font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-.markdown-body a {
+.markdown-body Blog {
   color: #4183c4;
   text-decoration: none;
 }
 
-.markdown-body a:hover,
-.markdown-body a:active {
+.markdown-body Blog:hover,
+.markdown-body Blog:active {
   text-decoration: underline;
 }
 

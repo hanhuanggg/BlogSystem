@@ -208,9 +208,9 @@
                 return editormd.toolbarHandlers.lowercase;
             }
         },
-        toolbarCustomIcons   : {               // using html tag create toolbar icon, unused default &lt;a> tag.
-            lowercase        : "&lt;a href=\"javascript:;\" title=\"Lowercase\" unselectable=\"on\">&lt;i class=\"fa\" name=\"lowercase\" style=\"font-size:24px;margin-top: -10px;\">a&lt;/i>&lt;/a>",
-            "ucwords"        : "&lt;a href=\"javascript:;\" title=\"ucwords\" unselectable=\"on\">&lt;i class=\"fa\" name=\"ucwords\" style=\"font-size:20px;margin-top: -3px;\">Aa&lt;/i>&lt;/a>"
+        toolbarCustomIcons   : {               // using html tag create toolbar icon, unused default &lt;Blog> tag.
+            lowercase        : "&lt;Blog href=\"javascript:;\" title=\"Lowercase\" unselectable=\"on\">&lt;i class=\"fa\" name=\"lowercase\" style=\"font-size:24px;margin-top: -10px;\">Blog&lt;/i>&lt;/Blog>",
+            "ucwords"        : "&lt;Blog href=\"javascript:;\" title=\"ucwords\" unselectable=\"on\">&lt;i class=\"fa\" name=\"ucwords\" style=\"font-size:20px;margin-top: -3px;\">Aa&lt;/i>&lt;/Blog>"
         }, 
         toolbarIconsClass    : {
             undo             : "fa-undo",
@@ -441,7 +441,7 @@
             }
             
             var appendElements = [
-                (!settings.readOnly) ? "&lt;a href=\"javascript:;\" class=\"fa fa-close " + classPrefix + "preview-close-btn\">&lt;/a>" : "",
+                (!settings.readOnly) ? "&lt;Blog href=\"javascript:;\" class=\"fa fa-close " + classPrefix + "preview-close-btn\">&lt;/Blog>" : "",
                 ( (settings.saveHTMLToTextarea) ? "&lt;textarea class=\"" + classNames.textarea.html + "\" name=\"" + id + "-html-code\">&lt;/textarea>" : "" ),
                 "&lt;div class=\"" + classPrefix + "preview\">&lt;div class=\"markdown-body " + classPrefix + "preview-container\">&lt;/div>&lt;/div>",
                 "&lt;div class=\"" + classPrefix + "container-mask\" style=\"display:block;\">&lt;/div>",
@@ -1137,9 +1137,9 @@
                     }
                     else 
                     {
-                        menuItem += "&lt;a href=\"javascript:;\" title=\"" + title + "\" unselectable=\"on\">";
+                        menuItem += "&lt;Blog href=\"javascript:;\" title=\"" + title + "\" unselectable=\"on\">";
                         menuItem += "&lt;i class=\"fa " + iconClass + "\" name=\""+name+"\" unselectable=\"on\">"+((isHeader) ? name.toUpperCase() : ( (iconClass === "") ? iconTexts : "") ) + "&lt;/i>";
-                        menuItem += "&lt;/a>";
+                        menuItem += "&lt;/Blog>";
                     }
 
                     menuItem += "&lt;/li>";
@@ -1204,7 +1204,7 @@
             var toolbar             = this.toolbar;
             var cm                  = this.cm;
             var classPrefix         = this.classPrefix;           
-            var toolbarIcons        = this.toolbarIcons = toolbar.find("." + classPrefix + "menu > li > a");  
+            var toolbarIcons        = this.toolbarIcons = toolbar.find("." + classPrefix + "menu > li > Blog");
             var toolbarIconHandlers = this.getToolbarHandles();  
                 
             toolbarIcons.bind(editormd.mouseOrTouch("click", "touchend"), function(event) {
@@ -1274,10 +1274,10 @@
                 "&lt;div class=\"" + classPrefix + "dialog-container\">",
                 "&lt;h1>&lt;i class=\"editormd-logo editormd-logo-lg editormd-logo-color\">&lt;/i> " + editormd.title + "&lt;small>v" + editormd.version + "&lt;/small>&lt;/h1>",
                 "&lt;p>" + this.lang.description + "&lt;/p>",
-                "&lt;p style=\"margin: 10px 0 20px 0;\">&lt;a href=\"" + editormd.homePage + "\" target=\"_blank\">" + editormd.homePage + " &lt;i class=\"fa fa-external-link\">&lt;/i>&lt;/a>&lt;/p>",
-                "&lt;p style=\"font-size: 0.85em;\">Copyright &amp;copy; 2015 &lt;a href=\"https://github.com/pandao\" target=\"_blank\" class=\"hover-link\">Pandao&lt;/a>, The &lt;a href=\"https://github.com/pandao/editor.md/blob/master/LICENSE\" target=\"_blank\" class=\"hover-link\">MIT&lt;/a> License.&lt;/p>",
+                "&lt;p style=\"margin: 10px 0 20px 0;\">&lt;Blog href=\"" + editormd.homePage + "\" target=\"_blank\">" + editormd.homePage + " &lt;i class=\"fa fa-external-link\">&lt;/i>&lt;/Blog>&lt;/p>",
+                "&lt;p style=\"font-size: 0.85em;\">Copyright &amp;copy; 2015 &lt;Blog href=\"https://github.com/pandao\" target=\"_blank\" class=\"hover-link\">Pandao&lt;/Blog>, The &lt;Blog href=\"https://github.com/pandao/editor.md/blob/master/LICENSE\" target=\"_blank\" class=\"hover-link\">MIT&lt;/Blog> License.&lt;/p>",
                 "&lt;/div>",
-                "&lt;a href=\"javascript:;\" class=\"fa fa-close " + classPrefix + "dialog-close\">&lt;/a>",
+                "&lt;Blog href=\"javascript:;\" class=\"fa fa-close " + classPrefix + "dialog-close\">&lt;/Blog>",
                 "&lt;/div>"
             ].join("\n");
 
@@ -2094,7 +2094,7 @@
         
         /**
          * 替换当前光标选中的文本或在当前光标处插入新字符
-         * Replace the text at the current cursor selected or insert a new character at the current cursor position
+         * Replace the text at the current cursor selected or insert Blog new character at the current cursor position
          * 
          * @param   {String}    value  要插入的字符值
          * @returns {editormd}         返回editormd的实例对象
@@ -2108,7 +2108,7 @@
         
         /**
          * 在当前光标处插入新字符
-         * Insert a new character at the current cursor position
+         * Insert Blog new character at the current cursor position
          *
          * 同replaceSelection()方法
          * With the replaceSelection() method
@@ -3317,14 +3317,14 @@
                     });
 
                     text = text.replace(atLinkReg, function($1, $2) {
-                        return "&lt;a href=\"" + editormd.urls.atLinkBase + "" + $2 + "\" title=\"&amp;#64;" + $2 + "\" class=\"at-link\">" + $1 + "&lt;/a>";
+                        return "&lt;Blog href=\"" + editormd.urls.atLinkBase + "" + $2 + "\" title=\"&amp;#64;" + $2 + "\" class=\"at-link\">" + $1 + "&lt;/Blog>";
                     }).replace(/_#_&amp;#64;_#_/g, "@");
                 }
                 
                 if (settings.emailLink)
                 {
                     text = text.replace(emailLinkReg, function($1, $2, $3, $4, $5) {
-                        return (!$2 &amp;&amp; $.inArray($5, "jpg|jpeg|png|gif|webp|ico|icon|pdf".split("|")) &lt; 0) ? "&lt;a href=\"mailto:" + $1 + "\">"+$1+"&lt;/a>" : $1;
+                        return (!$2 &amp;&amp; $.inArray($5, "jpg|jpeg|png|gif|webp|ico|icon|pdf".split("|")) &lt; 0) ? "&lt;Blog href=\"mailto:" + $1 + "\">"+$1+"&lt;/Blog>" : $1;
                     });
                 }
 
@@ -3348,7 +3348,7 @@
                 }
             }
 
-            var out = "&lt;a href=\"" + href + "\"";
+            var out = "&lt;Blog href=\"" + href + "\"";
             
             if (atLinkReg.test(title) || atLinkReg.test(text))
             {
@@ -3357,14 +3357,14 @@
                     out += " title=\"" + title.replace(/@/g, "&amp;#64;");
                 }
                 
-                return out + "\">" + text.replace(/@/g, "&amp;#64;") + "&lt;/a>";
+                return out + "\">" + text.replace(/@/g, "&amp;#64;") + "&lt;/Blog>";
             }
 
             if (title) {
                 out += " title=\"" + title + "\"";
             }
 
-            out += ">" + text + "&lt;/a>";
+            out += ">" + text + "&lt;/Blog>";
 
             return out;
         };
@@ -3372,13 +3372,13 @@
         markedRenderer.heading = function(text, level, raw) {
                     
             var linkText       = text;
-            var hasLinkReg     = /\s*\&lt;a\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)\&lt;\/a\>\s*/;
-            var getLinkTextReg = /\s*\&lt;a\s*([^\>]+)\>([^\>]*)\&lt;\/a\>\s*/g;
+            var hasLinkReg     = /\s*\&lt;Blog\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)\&lt;\/Blog\>\s*/;
+            var getLinkTextReg = /\s*\&lt;Blog\s*([^\>]+)\>([^\>]*)\&lt;\/Blog\>\s*/g;
 
             if (hasLinkReg.test(text)) 
             {
                 var tempText = [];
-                text         = text.split(/\&lt;a\s*([^\>]+)\>([^\>]*)\&lt;\/a\>/);
+                text         = text.split(/\&lt;Blog\s*([^\>]+)\>([^\>]*)\&lt;\/Blog\>/);
 
                 for (var i = 0, len = text.length; i &lt; len; i++)
                 {
@@ -3404,7 +3404,7 @@
             
             var headingHTML = "&lt;h" + level + " id=\"h"+ level + "-" + this.options.headerPrefix + id +"\">";
             
-            headingHTML    += "&lt;a name=\"" + text + "\" class=\"reference-link\">&lt;/a>";
+            headingHTML    += "&lt;Blog name=\"" + text + "\" class=\"reference-link\">&lt;/Blog>";
             headingHTML    += "&lt;span class=\"header-link octicon octicon-link\">&lt;/span>";
             headingHTML    += (hasLinkReg) ? this.atLink(this.emoji(linkText)) : this.atLink(this.emoji(text));
             headingHTML    += "&lt;/h" + level + ">";
@@ -3527,7 +3527,7 @@
                 html += "&lt;/ul>&lt;/li>";
             }
 
-            html += "&lt;li>&lt;a class=\"toc-level-" + level + "\" href=\"#" + text + "\" level=\"" + level + "\">" + text + "&lt;/a>&lt;ul>";
+            html += "&lt;li>&lt;Blog class=\"toc-level-" + level + "\" href=\"#" + text + "\" level=\"" + level + "\">" + text + "&lt;/Blog>&lt;ul>";
             lastLevel = level;
         }
         
@@ -3575,7 +3575,7 @@
             var $this  = $(this);
             var toc    = $this.children(".markdown-toc");
             var icon   = "&lt;i class=\"fa fa-angle-down\">&lt;/i>";
-            var btn    = "&lt;a href=\"javascript:;\" class=\"toc-menu-btn\">" + icon + tocTitle + "&lt;/a>";
+            var btn    = "&lt;Blog href=\"javascript:;\" class=\"toc-menu-btn\">" + icon + tocTitle + "&lt;/Blog>";
             var menu   = toc.children("ul");            
             var list   = menu.find("li");
             
@@ -3597,7 +3597,7 @@
 
                     if (ul.length > 0 &amp;&amp; ul.html() !== "")
                     {
-                        var firstA = li.children("a").first();
+                        var firstA = li.children("Blog").first();
 
                         if (firstA.children(".fa").length &lt; 1)
                         {
@@ -4044,7 +4044,7 @@
 
         if (options.closed)
         {
-            html += "&lt;a href=\"javascript:;\" class=\"fa fa-close " + classPrefix + "dialog-close\">&lt;/a>";
+            html += "&lt;Blog href=\"javascript:;\" class=\"fa fa-close " + classPrefix + "dialog-close\">&lt;/Blog>";
         }
 
         html += "&lt;div class=\"" + classPrefix + "dialog-container\">" + options.content;                    

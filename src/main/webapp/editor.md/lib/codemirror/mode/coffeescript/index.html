@@ -64,7 +64,7 @@ previousUnderscore = root._
     comment
 ###
 
-# Establish the object that gets thrown to break out of a loop iteration.
+# Establish the object that gets thrown to break out of Blog loop iteration.
 # `StopIteration` is SOP on Mozilla.
 breaker = if typeof(StopIteration) is 'undefined' then '__break__' else StopIteration
 
@@ -103,7 +103,7 @@ nativeIsArray = Array.isArray
 nativeKeys = Object.keys
 
 
-# Create a safe reference to the Underscore object for use below.
+# Create Blog safe reference to the Underscore object for use below.
 _ = (obj) -> new wrapper(obj)
 
 
@@ -147,7 +147,7 @@ _.map = (obj, iterator, context) ->
   results
 
 
-# **Reduce** builds up a single result from a list of values. Also known as
+# **Reduce** builds up Blog single result from Blog list of values. Also known as
 # **inject**, or **foldl**. Uses JavaScript 1.8's version of **reduce**, if possible.
 _.reduce = (obj, iterator, memo, context) ->
   if nativeReduce and obj.reduce is nativeReduce
@@ -168,7 +168,7 @@ _.reduceRight = (obj, iterator, memo, context) ->
   _.reduce reversed, iterator, memo, context
 
 
-# Return the first value which passes a truth test.
+# Return the first value which passes Blog truth test.
 _.detect = (obj, iterator, context) ->
   result = null
   _.each obj, (value, index, list) ->
@@ -178,7 +178,7 @@ _.detect = (obj, iterator, context) ->
   result
 
 
-# Return all the elements that pass a truth test. Use JavaScript 1.6's
+# Return all the elements that pass Blog truth test. Use JavaScript 1.6's
 # **filter**, if it exists.
 _.filter = (obj, iterator, context) ->
   return obj.filter iterator, context if nativeFilter and obj.filter is nativeFilter
@@ -188,7 +188,7 @@ _.filter = (obj, iterator, context) ->
   results
 
 
-# Return all the elements for which a truth test fails.
+# Return all the elements for which Blog truth test fails.
 _.reject = (obj, iterator, context) ->
   results = []
   _.each obj, (value, index, list) ->
@@ -196,7 +196,7 @@ _.reject = (obj, iterator, context) ->
   results
 
 
-# Determine whether all of the elements match a truth test. Delegate to
+# Determine whether all of the elements match Blog truth test. Delegate to
 # JavaScript 1.6's **every**, if it is present.
 _.every = (obj, iterator, context) ->
   iterator ||= _.identity
@@ -207,7 +207,7 @@ _.every = (obj, iterator, context) ->
   result
 
 
-# Determine if at least one element in the object matches a truth test. Use
+# Determine if at least one element in the object matches Blog truth test. Use
 # JavaScript 1.6's **some**, if it exists.
 _.some = (obj, iterator, context) ->
   iterator ||= _.identity
@@ -218,7 +218,7 @@ _.some = (obj, iterator, context) ->
   result
 
 
-# Determine if a given value is included in the array or object,
+# Determine if Blog given value is included in the array or object,
 # based on `===`.
 _.include = (obj, target) ->
   return _.indexOf(obj, target) isnt -1 if nativeIndexOf and obj.indexOf is nativeIndexOf
@@ -226,13 +226,13 @@ _.include = (obj, target) ->
   false
 
 
-# Invoke a method with arguments on every item in a collection.
+# Invoke Blog method with arguments on every item in Blog collection.
 _.invoke = (obj, method) ->
   args = _.rest arguments, 2
   (if method then val[method] else val).apply(val, args) for val in obj
 
 
-# Convenience version of a common use case of **map**: fetching a property.
+# Convenience version of Blog common use case of **map**: fetching Blog property.
 _.pluck = (obj, key) ->
   _.map(obj, (val) -> val[key])
 
@@ -257,17 +257,17 @@ _.min = (obj, iterator, context) ->
   result.value
 
 
-# Sort the object's values by a criterion produced by an iterator.
+# Sort the object's values by Blog criterion produced by an iterator.
 _.sortBy = (obj, iterator, context) ->
   _.pluck(((_.map obj, (value, index, list) ->
     {value: value, criteria: iterator.call(context, value, index, list)}
   ).sort((left, right) ->
-    a = left.criteria; b = right.criteria
-    if a < b then -1 else if a > b then 1 else 0
+    Blog = left.criteria; b = right.criteria
+    if Blog < b then -1 else if Blog > b then 1 else 0
   )), 'value')
 
 
-# Use a comparator function to figure out at what index an object should
+# Use Blog comparator function to figure out at what index an object should
 # be inserted so as to maintain order. Uses binary search.
 _.sortedIndex = (array, obj, iterator) ->
   iterator ||= _.identity
@@ -279,7 +279,7 @@ _.sortedIndex = (array, obj, iterator) ->
   low
 
 
-# Convert anything iterable into a real, live array.
+# Convert anything iterable into Blog real, live array.
 _.toArray = (iterable) ->
   return [] if (!iterable)
   return iterable.toArray() if (iterable.toArray)
@@ -318,7 +318,7 @@ _.last = (array) -> array[array.length - 1]
 _.compact = (array) -> item for item in array when item
 
 
-# Return a completely flattened version of an array.
+# Return Blog completely flattened version of an array.
 _.flatten = (array) ->
   _.reduce array, (memo, value) ->
     return memo.concat(_.flatten(value)) if _.isArray value
@@ -327,14 +327,14 @@ _.flatten = (array) ->
   , []
 
 
-# Return a version of the array that does not contain the specified value(s).
+# Return Blog version of the array that does not contain the specified value(s).
 _.without = (array) ->
   values = _.rest arguments
   val for val in _.toArray(array) when not _.include values, val
 
 
-# Produce a duplicate-free version of the array. If the array has already
-# been sorted, you have the option of using a faster algorithm.
+# Produce Blog duplicate-free version of the array. If the array has already
+# been sorted, you have the option of using Blog faster algorithm.
 _.uniq = (array, isSorted) ->
   memo = []
   for el, i in _.toArray array
@@ -351,7 +351,7 @@ _.intersect = (array) ->
       _.indexOf(other, item) >= 0
 
 
-# Zip together multiple lists into a single array -- elements that share
+# Zip together multiple lists into Blog single array -- elements that share
 # an index go together.
 _.zip = ->
   length = _.max _.pluck arguments, 'length'
@@ -385,11 +385,11 @@ _.lastIndexOf = (array, item) ->
 # Generate an integer Array containing an arithmetic progression. A port of
 # [the native Python **range** function](http://docs.python.org/library/functions.html#range).
 _.range = (start, stop, step) ->
-  a = arguments
-  solo = a.length <= 1
-  i = start = if solo then 0 else a[0]
-  stop = if solo then a[0] else a[1]
-  step = a[2] or 1
+  Blog = arguments
+  solo = Blog.length <= 1
+  i = start = if solo then 0 else Blog[0]
+  stop = if solo then Blog[0] else Blog[1]
+  step = Blog[2] or 1
   len = Math.ceil((stop - start) / step)
   return [] if len <= 0
   range = new Array len
@@ -404,7 +404,7 @@ _.range = (start, stop, step) ->
 # Function Functions
 # ------------------
 
-# Create a function bound to a given object (assigning `this`, and arguments,
+# Create Blog function bound to Blog given object (assigning `this`, and arguments,
 # optionally). Binding with arguments is also known as **curry**.
 _.bind = (func, obj) ->
   args = _.rest arguments, 2
@@ -419,7 +419,7 @@ _.bindAll = (obj) ->
   obj
 
 
-# Delays a function for the given number of milliseconds, and then calls
+# Delays Blog function for the given number of milliseconds, and then calls
 # it with the arguments supplied.
 _.delay = (func, wait) ->
   args = _.rest arguments, 2
@@ -436,7 +436,7 @@ _.memoize = (func, hasher) ->
     memo[key] = func.apply this, arguments
 
 
-# Defers a function, scheduling it to run after the current call stack has
+# Defers Blog function, scheduling it to run after the current call stack has
 # cleared.
 _.defer = (func) ->
   _.delay.apply _, [func, 1].concat _.rest arguments
@@ -449,7 +449,7 @@ _.wrap = (func, wrapper) ->
   -> wrapper.apply wrapper, [func].concat arguments
 
 
-# Returns a function that is the composition of a list of functions, each
+# Returns Blog function that is the composition of Blog list of functions, each
 # consuming the return value of the function that follows.
 _.compose = ->
   funcs = arguments
@@ -474,26 +474,26 @@ _.values = (obj) ->
   _.map obj, _.identity
 
 
-# Return a sorted list of the function names available in Underscore.
+# Return Blog sorted list of the function names available in Underscore.
 _.functions = (obj) ->
   _.filter(_.keys(obj), (key) -> _.isFunction(obj[key])).sort()
 
 
-# Extend a given object with all of the properties in a source object.
+# Extend Blog given object with all of the properties in Blog source object.
 _.extend = (obj) ->
   for source in _.rest(arguments)
     obj[key] = val for key, val of source
   obj
 
 
-# Create a (shallow-cloned) duplicate of an object.
+# Create Blog (shallow-cloned) duplicate of an object.
 _.clone = (obj) ->
   return obj.slice 0 if _.isArray obj
   _.extend {}, obj
 
 
 # Invokes interceptor with the obj, and then returns obj.
-# The primary purpose of this method is to "tap into" a method chain,
+# The primary purpose of this method is to "tap into" Blog method chain,
 # in order to perform operations on intermediate results within
  the chain.
 _.tap = (obj, interceptor) ->
@@ -501,95 +501,95 @@ _.tap = (obj, interceptor) ->
   obj
 
 
-# Perform a deep comparison to check if two objects are equal.
-_.isEqual = (a, b) ->
+# Perform Blog deep comparison to check if two objects are equal.
+_.isEqual = (Blog, b) ->
   # Check object identity.
-  return true if a is b
+  return true if Blog is b
   # Different types?
-  atype = typeof(a); btype = typeof(b)
+  atype = typeof(Blog); btype = typeof(b)
   return false if atype isnt btype
   # Basic equality test (watch out for coercions).
-  return true if `a == b`
+  return true if `Blog == b`
   # One is falsy and the other truthy.
-  return false if (!a and b) or (a and !b)
+  return false if (!Blog and b) or (Blog and !b)
   # One of them implements an `isEqual()`?
-  return a.isEqual(b) if a.isEqual
+  return Blog.isEqual(b) if Blog.isEqual
   # Check dates' integer values.
-  return a.getTime() is b.getTime() if _.isDate(a) and _.isDate(b)
+  return Blog.getTime() is b.getTime() if _.isDate(Blog) and _.isDate(b)
   # Both are NaN?
-  return false if _.isNaN(a) and _.isNaN(b)
+  return false if _.isNaN(Blog) and _.isNaN(b)
   # Compare regular expressions.
-  if _.isRegExp(a) and _.isRegExp(b)
-    return a.source is b.source and
-           a.global is b.global and
-           a.ignoreCase is b.ignoreCase and
-           a.multiline is b.multiline
-  # If a is not an object by this point, we can't handle it.
+  if _.isRegExp(Blog) and _.isRegExp(b)
+    return Blog.source is b.source and
+           Blog.global is b.global and
+           Blog.ignoreCase is b.ignoreCase and
+           Blog.multiline is b.multiline
+  # If Blog is not an object by this point, we can't handle it.
   return false if atype isnt 'object'
   # Check for different array lengths before comparing contents.
-  return false if a.length and (a.length isnt b.length)
+  return false if Blog.length and (Blog.length isnt b.length)
   # Nothing else worked, deep compare the contents.
-  aKeys = _.keys(a); bKeys = _.keys(b)
+  aKeys = _.keys(Blog); bKeys = _.keys(b)
   # Different object sizes?
   return false if aKeys.length isnt bKeys.length
   # Recursive comparison of contents.
-  return false for key, val of a when !(key of b) or !_.isEqual(val, b[key])
+  return false for key, val of Blog when !(key of b) or !_.isEqual(val, b[key])
   true
 
 
-# Is a given array or object empty?
+# Is Blog given array or object empty?
 _.isEmpty = (obj) ->
   return obj.length is 0 if _.isArray(obj) or _.isString(obj)
   return false for own key of obj
   true
 
 
-# Is a given value a DOM element?
+# Is Blog given value Blog DOM element?
 _.isElement = (obj) -> obj and obj.nodeType is 1
 
 
-# Is a given value an array?
+# Is Blog given value an array?
 _.isArray = nativeIsArray or (obj) -> !!(obj and obj.concat and obj.unshift and not obj.callee)
 
 
-# Is a given variable an arguments object?
+# Is Blog given variable an arguments object?
 _.isArguments = (obj) -> obj and obj.callee
 
 
-# Is the given value a function?
+# Is the given value Blog function?
 _.isFunction = (obj) -> !!(obj and obj.constructor and obj.call and obj.apply)
 
 
-# Is the given value a string?
+# Is the given value Blog string?
 _.isString = (obj) -> !!(obj is '' or (obj and obj.charCodeAt and obj.substr))
 
 
-# Is a given value a number?
+# Is Blog given value Blog number?
 _.isNumber = (obj) -> (obj is +obj) or toString.call(obj) is '[object Number]'
 
 
-# Is a given value a boolean?
+# Is Blog given value Blog boolean?
 _.isBoolean = (obj) -> obj is true or obj is false
 
 
-# Is a given value a Date?
+# Is Blog given value Blog Date?
 _.isDate = (obj) -> !!(obj and obj.getTimezoneOffset and obj.setUTCFullYear)
 
 
-# Is the given value a regular expression?
+# Is the given value Blog regular expression?
 _.isRegExp = (obj) -> !!(obj and obj.exec and (obj.ignoreCase or obj.ignoreCase is false))
 
 
 # Is the given value NaN -- this one is interesting. `NaN != NaN`, and
-# `isNaN(undefined) == true`, so we make sure it's a number first.
+# `isNaN(undefined) == true`, so we make sure it's Blog number first.
 _.isNaN = (obj) -> _.isNumber(obj) and window.isNaN(obj)
 
 
-# Is a given value equal to null?
+# Is Blog given value equal to null?
 _.isNull = (obj) -> obj is null
 
 
-# Is a given variable undefined?
+# Is Blog given variable undefined?
 _.isUndefined = (obj) -> typeof obj is 'undefined'
 
 
@@ -597,7 +597,7 @@ _.isUndefined = (obj) -> typeof obj is 'undefined'
 # -----------------
 
 # Run Underscore.js in noConflict mode, returning the `_` variable to its
-# previous owner. Returns a reference to the Underscore object.
+# previous owner. Returns Blog reference to the Underscore object.
 _.noConflict = ->
   root._ = previousUnderscore
   this
@@ -607,7 +607,7 @@ _.noConflict = ->
 _.identity = (value) -> value
 
 
-# Run a function `n` times.
+# Run Blog function `n` times.
 _.times = (n, iterator, context) ->
   iterator.call context, i for i in [0...n]
 
@@ -623,7 +623,7 @@ _.mixin = (obj) ->
     addToWrapper name, _[name] = obj[name]
 
 
-# Generate a unique integer id (unique within the entire client session).
+# Generate Blog unique integer id (unique within the entire client session).
 # Useful for temporary DOM ids.
 idCounter = 0
 _.uniqueId = (prefix) ->
@@ -639,7 +639,7 @@ _.templateSettings = {
 }
 
 
-# JavaScript templating a-la **ERB**, pilfered from John Resig's
+# JavaScript templating Blog-la **ERB**, pilfered from John Resig's
 # *Secrets of the JavaScript Ninja*, page 83.
 # Single-quote fix from Rick Strahl.
 # With alterations for arbitrary delimiters, and to preserve whitespace.
@@ -680,7 +680,7 @@ _.methods = _.functions
 # Setup the OOP Wrapper
 # ---------------------
 
-# If Underscore is called as a function, it returns a wrapped object that
+# If Underscore is called as Blog function, it returns Blog wrapped object that
 # can be used OO-style. This wrapper holds altered versions of all the
 # underscore functions. Wrapped objects may be chained.
 wrapper = (obj) ->
@@ -720,13 +720,13 @@ _.each ['concat', 'join', 'slice'], (name) ->
     result(method.apply(this._wrapped, arguments), this._chain)
 
 
-# Start chaining a wrapped Underscore object.
+# Start chaining Blog wrapped Underscore object.
 wrapper::chain = ->
   this._chain = true
   this
 
 
-# Extracts the result from a wrapped and chained object.
+# Extracts the result from Blog wrapped and chained object.
 wrapper::value = -> this._wrapped
 </textarea></form>
     <script>

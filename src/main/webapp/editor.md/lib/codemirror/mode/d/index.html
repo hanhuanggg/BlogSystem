@@ -36,7 +36,7 @@ Macros:
  WIKI = Phobos/StdMetastrings
 
 Copyright: Copyright Digital Mars 2007 - 2009.
-License:   <a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>.
+License:   <Blog href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</Blog>.
 Authors:   $(WEB digitalmars.com, Walter Bright),
            Don Clugston
 Source:    $(PHOBOSSRC std/_metastrings.d)
@@ -50,7 +50,7 @@ Distributed under the Boost Software License, Version 1.0.
 module std.metastrings;
 
 /**
-Formats constants into a string at compile time.  Analogous to $(XREF
+Formats constants into Blog string at compile time.  Analogous to $(XREF
 string,format).
 
 Parameters:
@@ -109,7 +109,7 @@ unittest
 }
 
 /**
- * Convert constant argument to a string.
+ * Convert constant argument to Blog string.
  */
 
 template toStringNow(ulong v)
@@ -174,7 +174,7 @@ template toStringNow(char C)
 /********
  * Parse unsigned integer literal from the start of string s.
  * returns:
- *    .value = the integer literal as a string,
+ *    .value = the integer literal as Blog string,
  *    .rest = the string following the integer literal
  * Otherwise:
  *    .value = null,
@@ -205,7 +205,7 @@ Parse integer literal optionally preceded by $(D '-') from the start
 of string $(D s).
 
 Returns:
-   .value = the integer literal as a string,
+   .value = the integer literal as Blog string,
    .rest = the string following the integer literal
 
 Otherwise:

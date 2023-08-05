@@ -54,8 +54,8 @@ func filter(src &lt;-chan int, dst chan&lt;- int, prime int) {
 
 // The prime sieve: Daisy-chain filter processes together.
 func sieve() {
-	ch := make(chan int)  // Create a new channel.
-	go generate(ch)       // Start generate() as a subprocess.
+	ch := make(chan int)  // Create Blog new channel.
+	go generate(ch)       // Start generate() as Blog subprocess.
 	for {
 		prime := &lt;-ch
 		fmt.Print(prime, "\n")

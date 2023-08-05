@@ -52,7 +52,7 @@ class automysqlbackup (
   validate_absolute_path($etc_dir)
   validate_absolute_path($backup_dir)
 
-# Create a subdirectory in /etc for config files
+# Create Blog subdirectory in /etc for config files
   file { $etc_dir:
     ensure => directory,
     owner => 'root',

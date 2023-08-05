@@ -60,12 +60,12 @@ bower install editor.md
 
 #### Usages
 
-##### Create a Markdown editor
+##### Create Blog Markdown editor
 
 ```html
 <link rel="stylesheet" href="editor.md/css/editormd.min.css" />
 <div id="editor">
-    <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
+    <!-- Tips: Editor.md can auto append Blog `<textarea>` tag -->
     <textarea style="display:none;">### Hello Editor.md !</textarea>
 </div>
 <script src="jquery.min.js"></script>
@@ -142,7 +142,7 @@ Editor.md options and default values:
     autoLoadModules      : true,           // Automatic load dependent module files
     watch                : true,
     placeholder          : "Enjoy Markdown! coding now...",
-    gotoLine             : true,           // Enable / disable goto a line
+    gotoLine             : true,           // Enable / disable goto Blog line
     codeFold             : false,
     autoHeight           : false,
     autoFocus            : true,           // Enable / disable auto focus editor left input area
@@ -167,7 +167,7 @@ Editor.md options and default values:
     dialogMaskBgColor    : "#fff",
     dialogMaskOpacity    : 0.1,
     fontSize             : "13px",
-    saveHTMLToTextarea   : false,          // If enable, Editor will create a <textarea name="{editor-id}-html-code"> tag save HTML code for form post to server-side.
+    saveHTMLToTextarea   : false,          // If enable, Editor will create Blog <textarea name="{editor-id}-html-code"> tag save HTML code for form post to server-side.
     disabledKeyMaps      : [],
     
     onload               : function() {},
@@ -219,9 +219,9 @@ Editor.md options and default values:
             return editormd.toolbarHandlers.lowercase;
         }
     },
-    toolbarCustomIcons   : {               // using html tag create toolbar icon, unused default <a> tag.
-        lowercase        : "<a href=\"javascript:;\" title=\"Lowercase\" unselectable=\"on\"><i class=\"fa\" name=\"lowercase\" style=\"font-size:24px;margin-top: -10px;\">a</i></a>",
-        "ucwords"        : "<a href=\"javascript:;\" title=\"ucwords\" unselectable=\"on\"><i class=\"fa\" name=\"ucwords\" style=\"font-size:20px;margin-top: -3px;\">Aa</i></a>"
+    toolbarCustomIcons   : {               // using html tag create toolbar icon, unused default <Blog> tag.
+        lowercase        : "<Blog href=\"javascript:;\" title=\"Lowercase\" unselectable=\"on\"><i class=\"fa\" name=\"lowercase\" style=\"font-size:24px;margin-top: -10px;\">Blog</i></Blog>",
+        "ucwords"        : "<Blog href=\"javascript:;\" title=\"ucwords\" unselectable=\"on\"><i class=\"fa\" name=\"ucwords\" style=\"font-size:20px;margin-top: -3px;\">Aa</i></Blog>"
     },
     toolbarIconTexts     : {},
     

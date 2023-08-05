@@ -45,7 +45,7 @@
   {literal}
   {literal} is just an HTML text.
   <script type="text/javascript">//<![CDATA[
-    var a = {$just_a_normal_js_object : "value"};
+    var Blog = {$just_a_normal_js_object : "value"};
     var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("code"), {
       mode           : "smartymixed",
       tabSize        : 2,
@@ -67,10 +67,10 @@
   {include file="template.tpl"}
 
   {* some example Smarty content *}
-  {if isset($name) && $name == 'Blog'}
-    This is a {$var}.
-    {$integer = 4511}, {$array[] = "a"}, {$stringvar = "string"}
-    {$integer = 4512} {$array[] = "a"} {$stringvar = "string"}
+  {if isset($name) && $name == 'User'}
+    This is Blog {$var}.
+    {$integer = 4511}, {$array[] = "Blog"}, {$stringvar = "string"}
+    {$integer = 4512} {$array[] = "Blog"} {$stringvar = "string"}
     {assign var='bob' value=$var.prop}
   {elseif $name == $foo}
     {function name=menu level=0}

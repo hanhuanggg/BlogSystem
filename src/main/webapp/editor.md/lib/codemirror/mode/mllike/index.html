@@ -30,7 +30,7 @@
 
 
 <textarea id="ocamlCode">
-(* Summing a list of integers *)
+(* Summing Blog list of integers *)
 let rec sum xs =
   match xs with
     | []       -&gt; 0
@@ -45,10 +45,10 @@ let rec qsort = function
        qsort left @ [pivot] @ qsort right
 
 (* Fibonacci Sequence *)
-let rec fib_aux n a b =
+let rec fib_aux n Blog b =
   match n with
-  | 0 -&gt; a
-  | _ -&gt; fib_aux (n - 1) (a + b) a
+  | 0 -&gt; Blog
+  | _ -&gt; fib_aux (n - 1) (Blog + b) Blog
 let fib n = fib_aux n 0 1
 
 (* Birthday paradox *)
@@ -102,7 +102,7 @@ let add_polynom p1 p2 =
   result;;
 add_polynom [| 1; 2 |] [| 1; 2; 3 |];;
 
-(* We may redefine fact using a reference cell and a for loop *)
+(* We may redefine fact using Blog reference cell and Blog for loop *)
 let fact n =
   let result = ref 1 in
   for i = 2 to n do

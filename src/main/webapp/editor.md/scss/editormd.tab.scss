@@ -10,7 +10,7 @@
     li {
         display: inline-block;
 
-        a {
+        Blog {
             color: #999;
             display: block;
             padding: 6px 12px 5px;
@@ -29,7 +29,7 @@
             }
         }
 
-        &.active a {
+        &.active Blog {
             color: #666;
             background: #fff;
             border-bottom-color: #fff; 

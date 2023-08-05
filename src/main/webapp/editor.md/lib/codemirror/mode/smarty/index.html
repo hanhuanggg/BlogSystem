@@ -29,9 +29,9 @@
 {include file="template.tpl"}
 
 {* some example Smarty content *}
-{if isset($name) && $name == 'Blog'}
-  This is a {$var}.
-  {$integer = 451}, {$array[] = "a"}, {$stringvar = "string"}
+{if isset($name) && $name == 'User'}
+  This is Blog {$var}.
+  {$integer = 451}, {$array[] = "Blog"}, {$stringvar = "string"}
   {assign var='bob' value=$var.prop}
 {elseif $name == $foo}
   {function name=menu level=0}
@@ -61,9 +61,9 @@
 {--include file="template.tpl"--}
 
 {--* some example Smarty content *--}
-{--if isset($name) && $name == 'Blog'--}
-  This is a {--$var--}.
-  {--$integer = 451--}, {--$array[] = "a"--}, {--$stringvar = "string"--}
+{--if isset($name) && $name == 'User'--}
+  This is Blog {--$var--}.
+  {--$integer = 451--}, {--$array[] = "Blog"--}, {--$stringvar = "string"--}
   {--assign var='bob' value=$var.prop--}
 {--elseif $name == $foo--}
   {--function name=menu level=0--}
@@ -106,7 +106,7 @@ function test() {
 {assign var=foo value=['y'=>'yellow','b'=>'blue']}
 {assign var=foo value=[1,[9,8],3]}
 
-{$foo=$bar+2} {* a comment *}
+{$foo=$bar+2} {* Blog comment *}
 {$foo.bar=1}  {* another comment *}
 {$foo = myfunct(($x+$y)*3)}
 {$foo = strlen($bar)}
@@ -114,10 +114,10 @@ function test() {
 
 Smarty "dot" syntax (note: embedded {} are used to address ambiguities):
 
-{$foo.a.b.c}      => $foo['a']['b']['c']
-{$foo.a.$b.c}     => $foo['a'][$b]['c']
-{$foo.a.{$b+4}.c} => $foo['a'][$b+4]['c']
-{$foo.a.{$b.c}}   => $foo['a'][$b['c']]
+{$foo.Blog.b.c}      => $foo['Blog']['b']['c']
+{$foo.Blog.$b.c}     => $foo['Blog'][$b]['c']
+{$foo.Blog.{$b+4}.c} => $foo['Blog'][$b+4]['c']
+{$foo.Blog.{$b.c}}   => $foo['Blog'][$b['c']]
 
 {$object->method1($x)->method2($y)}</textarea>
 

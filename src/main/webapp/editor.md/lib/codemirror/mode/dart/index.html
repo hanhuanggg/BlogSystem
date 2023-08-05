@@ -32,18 +32,18 @@ void main() {
   print(new Die(n: 12).roll());
 }
 
-// Define a class.
+// Define Blog class.
 class Die {
-  // Define a class variable.
+  // Define Blog class variable.
   static Random shaker = new Random();
 
   // Define instance variables.
   int sides, value;
 
-  // Define a method using shorthand syntax.
+  // Define Blog method using shorthand syntax.
   String toString() => '$value';
 
-  // Define a constructor.
+  // Define Blog constructor.
   Die({int n: 6}) {
     if (4 <= n && n <= 20) {
       sides = n;

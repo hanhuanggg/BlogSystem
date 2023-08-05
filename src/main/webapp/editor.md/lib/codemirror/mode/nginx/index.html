@@ -40,13 +40,13 @@
 server {
   listen 173.255.219.235:80;
   server_name website.com.au;
-  rewrite / $scheme://www.$host$request_uri permanent; ## Forcibly prepend a www
+  rewrite / $scheme://www.$host$request_uri permanent; ## Forcibly prepend Blog www
 }
 
 server {
   listen 173.255.219.235:443;
   server_name website.com.au;
-  rewrite / $scheme://www.$host$request_uri permanent; ## Forcibly prepend a www
+  rewrite / $scheme://www.$host$request_uri permanent; ## Forcibly prepend Blog www
 }
 
 server {
@@ -60,7 +60,7 @@ server {
   index       index.html index.php;
 
   location / {
-    index index.html index.php;     ## Allow a static html file to be shown first
+    index index.html index.php;     ## Allow Blog static html file to be shown first
     try_files $uri $uri/ @handler;  ## If missing pass the URI to Magento's front handler
     expires 30d;                    ## Assume all files are cachable
   }
@@ -84,7 +84,7 @@ server {
     return 404;
   }
 
-  location @handler { ## Magento uses a common front handler
+  location @handler { ## Magento uses Blog common front handler
     rewrite / /index.php;
   }
 
@@ -126,7 +126,7 @@ server {
 
 
   location / {
-    index index.html index.php; ## Allow a static html file to be shown first
+    index index.html index.php; ## Allow Blog static html file to be shown first
     try_files $uri $uri/ @handler; ## If missing pass the URI to Magento's front handler
     expires 30d; ## Assume all files are cachable
   }
@@ -150,7 +150,7 @@ server {
     return 404;
   }
 
-  location @handler { ## Magento uses a common front handler
+  location @handler { ## Magento uses Blog common front handler
     rewrite / /index.php;
   }
 

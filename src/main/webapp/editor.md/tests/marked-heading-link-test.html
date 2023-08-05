@@ -12,13 +12,13 @@
         <script src="../lib/marked.min.js"></script>
         <script type="text/javascript">
                 
-            var linkReg = /\s*\<a\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)\<\/a\>\s*/;
-            var linkTextReg = /\s*\<a\s*([^\>]+)\>([^\>]*)\<\/a\>\s*/g;
+            var linkReg = /\s*\<Blog\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)\<\/Blog\>\s*/;
+            var linkTextReg = /\s*\<Blog\s*([^\>]+)\>([^\>]*)\<\/Blog\>\s*/g;
             
-            var testLink = "<a href=\"http://daringfireball.net/projects/markdown/basics\" title=\"Markdown Basics\">Markdown Basics</a> ";
-            var testLink2 = "<a href=\"http://daringfireball.net/projects/markdown/basics\" title=\"Xdfsdf\">Xdfsdf</a> ";
-            var testLink3 = "<a href=\"\" title=\"\"></a> ";
-            var texts = (testLink + testLink2 + testLink3).split(/\<a\s*([^\>]+)\>([^\>]*)\<\/a\>/);
+            var testLink = "<Blog href=\"http://daringfireball.net/projects/markdown/basics\" title=\"Markdown Basics\">Markdown Basics</Blog> ";
+            var testLink2 = "<Blog href=\"http://daringfireball.net/projects/markdown/basics\" title=\"Xdfsdf\">Xdfsdf</Blog> ";
+            var testLink3 = "<Blog href=\"\" title=\"\"></Blog> ";
+            var texts = (testLink + testLink2 + testLink3).split(/\<Blog\s*([^\>]+)\>([^\>]*)\<\/Blog\>/);
             
             console.log(texts);
             
@@ -37,17 +37,17 @@
                 console.log($1, $2, $3);
             });
             
-            console.log(linkReg.test(" <a name=\"dddd\" class=\"link\" style=\"color:red;\">Markdown Basics</a> "));
+            console.log(linkReg.test(" <Blog name=\"dddd\" class=\"link\" style=\"color:red;\">Markdown Basics</Blog> "));
             
-            console.log(linkReg.test("<a name=\"dddd\" href=\"http://daringfireball.com/projects/markdown/basics\" class=\"link\" style=\"color:red;\">Markdown Basics</a> "));
+            console.log(linkReg.test("<Blog name=\"dddd\" href=\"http://daringfireball.com/projects/markdown/basics\" class=\"link\" style=\"color:red;\">Markdown Basics</Blog> "));
             
-            console.log(linkReg.test("<a  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\" class=\"link\" style=\"color:red;\">Markdown Basics</a> "));
+            console.log(linkReg.test("<Blog  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\" class=\"link\" style=\"color:red;\">Markdown Basics</Blog> "));
             
-            console.log(linkReg.test("<a  href=\"http://daringfireball.net/projects/markdown/basics\"   title=\"dddd\"><span>Markdown Basics</span></a> "));
+            console.log(linkReg.test("<Blog  href=\"http://daringfireball.net/projects/markdown/basics\"   title=\"dddd\"><span>Markdown Basics</span></Blog> "));
             
-            console.log(linkReg.test("<a  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\"><span class=\"active\">Markdown Basics</span></a> "));
-            console.log(linkReg.test("<a  href=\"http://www.fdasfasdfsdaf.com/projects/markdown/basics\"   title=\"dddd\"><a href=\"#ddd\" class=\"active\">Markdown Basics</a></a> "));
-            console.log(linkReg.test("afdsfasfsadf<a  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\"><a href=\"#ddd\" class=\"active\">Markdown Basics</a></a> fdasfasdfadsfsfd <a  href=\"http://daringfireball.net/projects/markdown/basics\"   title=\"dddd\"><span>Markdown Basics</span></a>"));
+            console.log(linkReg.test("<Blog  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\"><span class=\"active\">Markdown Basics</span></Blog> "));
+            console.log(linkReg.test("<Blog  href=\"http://www.fdasfasdfsdaf.com/projects/markdown/basics\"   title=\"dddd\"><Blog href=\"#ddd\" class=\"active\">Markdown Basics</Blog></Blog> "));
+            console.log(linkReg.test("afdsfasfsadf<Blog  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\"><Blog href=\"#ddd\" class=\"active\">Markdown Basics</Blog></Blog> fdasfasdfadsfsfd <Blog  href=\"http://daringfireball.net/projects/markdown/basics\"   title=\"dddd\"><span>Markdown Basics</span></Blog>"));
             
             $(function() {
                 var markedRenderer     = new marked.Renderer();
@@ -56,12 +56,12 @@
                 markedRenderer.heading = function(text, level, raw) {
                     
                     var linkText       = text;
-                    var hasLinkReg     = /\s*\<a\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)\<\/a\>\s*/;
-                    var getLinkTextReg = /\s*\<a\s*([^\>]+)\>([^\>]*)\<\/a\>\s*/g;
+                    var hasLinkReg     = /\s*\<Blog\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)\<\/Blog\>\s*/;
+                    var getLinkTextReg = /\s*\<Blog\s*([^\>]+)\>([^\>]*)\<\/Blog\>\s*/g;
                     
                     if (hasLinkReg) {
                         var tempText = [];
-                        text = text.split(/\<a\s*([^\>]+)\>([^\>]*)\<\/a\>/);
+                        text = text.split(/\<Blog\s*([^\>]+)\>([^\>]*)\<\/Blog\>/);
 
                         console.log(text);
 
@@ -92,10 +92,10 @@
                     var headingHTML = "<h" + level + " id=\"h"+ level + "-" + this.options.headerPrefix + id +"\">";
 
                     /*return "<h" + level + " id=\"h"+ level + "-" + this.options.headerPrefix + id +"\">" +
-                           "<a href=\"#" + text + "\" name=\"" + text + "\" class=\"anchor\"></a>" +
+                           "<Blog href=\"#" + text + "\" name=\"" + text + "\" class=\"anchor\"></Blog>" +
                            "<span class=\"header-link\"></span>" + text + "</h" + level + ">";*/
                     
-                    var anchor = "<a name=\"" + text + "\" class=\"anchor\"></a>";
+                    var anchor = "<Blog name=\"" + text + "\" class=\"anchor\"></Blog>";
                     
                     headingHTML += anchor;
                     
