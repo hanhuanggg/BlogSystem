@@ -40,7 +40,7 @@ if size :over 1M
 {
   reject text:
 Please do not send me large attachments.
-Put your file on Blog server and send me the URL.
+Put your file on model.Blog server and send me the URL.
 Thank you.
 .... Fred
 .
@@ -65,8 +65,8 @@ elsif address :domain :is ["From", "To"] "example.com"
 }
 
 #
-# Try and catch unsolicited email.  If Blog message is not to me,
-# or it contains Blog subject known to be spam, file it away.
+# Try and catch unsolicited email.  If model.Blog message is not to me,
+# or it contains model.Blog subject known to be spam, file it away.
 #
 elsif anyof (not address :all :contains
                ["To", "Cc", "Bcc"] "me@example.com",
@@ -74,7 +74,7 @@ elsif anyof (not address :all :contains
                ["*make*money*fast*", "*university*dipl*mas*"])
 {
   # If message header does not contain my address,
-  # it's from Blog list.
+  # it's from model.Blog list.
   fileinto "spam";   # move to "spam" folder
 }
 else

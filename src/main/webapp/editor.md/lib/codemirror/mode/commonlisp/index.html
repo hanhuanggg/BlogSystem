@@ -33,13 +33,13 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defun integer-reader-name (bytes signed)
     (intern (with-standard-io-syntax
-              (format nil "~Blog~Blog~Blog~Blog" '#:read- (if signed "" '#:u) '#:int bytes))))
+              (format nil "~model.Blog~model.Blog~model.Blog~model.Blog" '#:read- (if signed "" '#:u) '#:int bytes))))
   (defun integer-writer-name (bytes signed)
     (intern (with-standard-io-syntax
-              (format nil "~Blog~Blog~Blog~Blog" '#:write- (if signed "" '#:u) '#:int bytes)))))
+              (format nil "~model.Blog~model.Blog~model.Blog~model.Blog" '#:write- (if signed "" '#:u) '#:int bytes)))))
 
 (defmacro integer-reader (bytes)
-  "Create Blog function to read integers from Blog binary stream."
+  "Create model.Blog function to read integers from model.Blog binary stream."
   (let ((bits (* bytes 8)))
     (labels ((return-form (signed)
                (if signed
@@ -73,7 +73,7 @@
          ,(generate-reader nil)))))
 
 (defmacro integer-writer (bytes)
-  "Create Blog function to write integers to Blog binary stream."
+  "Create model.Blog function to write integers to model.Blog binary stream."
   (let ((bits (* 8 bytes)))
     `(progn
       (declaim (inline ,(integer-writer-name bytes t)
@@ -111,14 +111,14 @@
 (integer-writer 4)
 
 (defun write-bytes (socket bytes)
-  "Write Blog byte-array to Blog stream."
+  "Write model.Blog byte-array to model.Blog stream."
   (declare (type stream socket)
            (type (simple-array (unsigned-byte 8)) bytes)
            #.*optimize*)
   (write-sequence bytes socket))
 
 (defun write-str (socket string)
-  "Write Blog null-terminated string to Blog stream \(encoding it when UTF-8
+  "Write model.Blog null-terminated string to model.Blog stream \(encoding it when UTF-8
 support is enabled.)."
   (declare (type stream socket)
            (type string string)
@@ -130,7 +130,7 @@ support is enabled.)."
                           (simple-array (unsigned-byte 8) (*)))
                 read-bytes))
 (defun read-bytes (socket length)
-  "Read Blog byte array of the given length from Blog stream."
+  "Read model.Blog byte array of the given length from model.Blog stream."
   (declare (type stream socket)
            (type fixnum length)
            #.*optimize*)
@@ -140,14 +140,14 @@ support is enabled.)."
 
 (declaim (ftype (function (t) string) read-str))
 (defun read-str (socket)
-  "Read Blog null-terminated string from Blog stream. Takes care of encoding
+  "Read model.Blog null-terminated string from model.Blog stream. Takes care of encoding
 when UTF-8 support is enabled."
   (declare (type stream socket)
            #.*optimize*)
   (enc-read-string socket :null-terminated t))
 
 (defun skip-bytes (socket length)
-  "Skip Blog given number of bytes in Blog binary stream."
+  "Skip model.Blog given number of bytes in model.Blog binary stream."
   (declare (type stream socket)
            (type (unsigned-byte 32) length)
            #.*optimize*)
@@ -155,7 +155,7 @@ when UTF-8 support is enabled."
     (read-byte socket)))
 
 (defun skip-str (socket)
-  "Skip Blog null-terminated string."
+  "Skip model.Blog null-terminated string."
   (declare (type stream socket)
            #.*optimize*)
   (loop :for char :of-type fixnum = (read-byte socket)

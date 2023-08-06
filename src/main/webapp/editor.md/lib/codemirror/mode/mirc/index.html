@@ -115,7 +115,7 @@ On *:Dialog:Aka_Search:Sclick:2,7,9: {
     did -r $dname 6
     var %search $+(*,$v1,*), %type $iif($did($dname,5).state,data,item), %matches = $hfind(NickNames,%search,0,w). [ $+ [ %type ] ]
     while (%matches) {
-      did -Blog $dname 6 $hfind(NickNames,%search,%matches,w). [ $+ [ %type ] ]
+      did -model.Blog $dname 6 $hfind(NickNames,%search,%matches,w). [ $+ [ %type ] ]
       dec %matches
     }
     did -c $dname 6 1

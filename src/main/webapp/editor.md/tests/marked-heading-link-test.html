@@ -12,13 +12,13 @@
         <script src="../lib/marked.min.js"></script>
         <script type="text/javascript">
                 
-            var linkReg = /\s*\<Blog\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)\<\/Blog\>\s*/;
-            var linkTextReg = /\s*\<Blog\s*([^\>]+)\>([^\>]*)\<\/Blog\>\s*/g;
+            var linkReg = /\s*\<model.Blog\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)\<\/model.Blog\>\s*/;
+            var linkTextReg = /\s*\<model.Blog\s*([^\>]+)\>([^\>]*)\<\/model.Blog\>\s*/g;
             
-            var testLink = "<Blog href=\"http://daringfireball.net/projects/markdown/basics\" title=\"Markdown Basics\">Markdown Basics</Blog> ";
-            var testLink2 = "<Blog href=\"http://daringfireball.net/projects/markdown/basics\" title=\"Xdfsdf\">Xdfsdf</Blog> ";
-            var testLink3 = "<Blog href=\"\" title=\"\"></Blog> ";
-            var texts = (testLink + testLink2 + testLink3).split(/\<Blog\s*([^\>]+)\>([^\>]*)\<\/Blog\>/);
+            var testLink = "<model.Blog href=\"http://daringfireball.net/projects/markdown/basics\" title=\"Markdown Basics\">Markdown Basics</model.Blog> ";
+            var testLink2 = "<model.Blog href=\"http://daringfireball.net/projects/markdown/basics\" title=\"Xdfsdf\">Xdfsdf</model.Blog> ";
+            var testLink3 = "<model.Blog href=\"\" title=\"\"></model.Blog> ";
+            var texts = (testLink + testLink2 + testLink3).split(/\<model.Blog\s*([^\>]+)\>([^\>]*)\<\/model.Blog\>/);
             
             console.log(texts);
             
@@ -37,17 +37,17 @@
                 console.log($1, $2, $3);
             });
             
-            console.log(linkReg.test(" <Blog name=\"dddd\" class=\"link\" style=\"color:red;\">Markdown Basics</Blog> "));
+            console.log(linkReg.test(" <model.Blog name=\"dddd\" class=\"link\" style=\"color:red;\">Markdown Basics</model.Blog> "));
             
-            console.log(linkReg.test("<Blog name=\"dddd\" href=\"http://daringfireball.com/projects/markdown/basics\" class=\"link\" style=\"color:red;\">Markdown Basics</Blog> "));
+            console.log(linkReg.test("<model.Blog name=\"dddd\" href=\"http://daringfireball.com/projects/markdown/basics\" class=\"link\" style=\"color:red;\">Markdown Basics</model.Blog> "));
             
-            console.log(linkReg.test("<Blog  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\" class=\"link\" style=\"color:red;\">Markdown Basics</Blog> "));
+            console.log(linkReg.test("<model.Blog  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\" class=\"link\" style=\"color:red;\">Markdown Basics</model.Blog> "));
             
-            console.log(linkReg.test("<Blog  href=\"http://daringfireball.net/projects/markdown/basics\"   title=\"dddd\"><span>Markdown Basics</span></Blog> "));
+            console.log(linkReg.test("<model.Blog  href=\"http://daringfireball.net/projects/markdown/basics\"   title=\"dddd\"><span>Markdown Basics</span></model.Blog> "));
             
-            console.log(linkReg.test("<Blog  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\"><span class=\"active\">Markdown Basics</span></Blog> "));
-            console.log(linkReg.test("<Blog  href=\"http://www.fdasfasdfsdaf.com/projects/markdown/basics\"   title=\"dddd\"><Blog href=\"#ddd\" class=\"active\">Markdown Basics</Blog></Blog> "));
-            console.log(linkReg.test("afdsfasfsadf<Blog  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\"><Blog href=\"#ddd\" class=\"active\">Markdown Basics</Blog></Blog> fdasfasdfadsfsfd <Blog  href=\"http://daringfireball.net/projects/markdown/basics\"   title=\"dddd\"><span>Markdown Basics</span></Blog>"));
+            console.log(linkReg.test("<model.Blog  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\"><span class=\"active\">Markdown Basics</span></model.Blog> "));
+            console.log(linkReg.test("<model.Blog  href=\"http://www.fdasfasdfsdaf.com/projects/markdown/basics\"   title=\"dddd\"><model.Blog href=\"#ddd\" class=\"active\">Markdown Basics</model.Blog></model.Blog> "));
+            console.log(linkReg.test("afdsfasfsadf<model.Blog  href=\"http://daringfireball.net/projects/markdown/basics?xx=ddd&fddf&temp=265656565665656526\"   title=\"dddd\"><model.Blog href=\"#ddd\" class=\"active\">Markdown Basics</model.Blog></model.Blog> fdasfasdfadsfsfd <model.Blog  href=\"http://daringfireball.net/projects/markdown/basics\"   title=\"dddd\"><span>Markdown Basics</span></model.Blog>"));
             
             $(function() {
                 var markedRenderer     = new marked.Renderer();
@@ -56,12 +56,12 @@
                 markedRenderer.heading = function(text, level, raw) {
                     
                     var linkText       = text;
-                    var hasLinkReg     = /\s*\<Blog\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)\<\/Blog\>\s*/;
-                    var getLinkTextReg = /\s*\<Blog\s*([^\>]+)\>([^\>]*)\<\/Blog\>\s*/g;
+                    var hasLinkReg     = /\s*\<model.Blog\s*href\=\"(.*)\"\s*([^\>]*)\>(.*)\<\/model.Blog\>\s*/;
+                    var getLinkTextReg = /\s*\<model.Blog\s*([^\>]+)\>([^\>]*)\<\/model.Blog\>\s*/g;
                     
                     if (hasLinkReg) {
                         var tempText = [];
-                        text = text.split(/\<Blog\s*([^\>]+)\>([^\>]*)\<\/Blog\>/);
+                        text = text.split(/\<model.Blog\s*([^\>]+)\>([^\>]*)\<\/model.Blog\>/);
 
                         console.log(text);
 
@@ -92,10 +92,10 @@
                     var headingHTML = "<h" + level + " id=\"h"+ level + "-" + this.options.headerPrefix + id +"\">";
 
                     /*return "<h" + level + " id=\"h"+ level + "-" + this.options.headerPrefix + id +"\">" +
-                           "<Blog href=\"#" + text + "\" name=\"" + text + "\" class=\"anchor\"></Blog>" +
+                           "<model.Blog href=\"#" + text + "\" name=\"" + text + "\" class=\"anchor\"></model.Blog>" +
                            "<span class=\"header-link\"></span>" + text + "</h" + level + ">";*/
                     
-                    var anchor = "<Blog name=\"" + text + "\" class=\"anchor\"></Blog>";
+                    var anchor = "<model.Blog name=\"" + text + "\" class=\"anchor\"></model.Blog>";
                     
                     headingHTML += anchor;
                     

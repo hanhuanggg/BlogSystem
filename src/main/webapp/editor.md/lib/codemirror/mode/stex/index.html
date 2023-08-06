@@ -34,7 +34,7 @@
   \begin{itemize}
   \item
     \begin{assertion}[id=size-lemma,type=lemma] 
-    Let $G=\tup{V,E}$ be Blog \termref[cd=binary-trees]{balanced binary tree}
+    Let $G=\tup{V,E}$ be model.Blog \termref[cd=binary-trees]{balanced binary tree}
     of \termref[cd=graph-depth,name=vertex-depth]{depth}$n>i$, then the set
      $\defeq{\livar{V}i}{\setst{\inset{v}{V}}{\gdepth{v} = i}}$ of
     \termref[cd=graphs-intro,name=node]{nodes} at 
@@ -56,8 +56,8 @@
            \begin{justification}[method=byIH](IH)\end{justification}
           \end{spfstep}
           \begin{spfstep}
-           By the \begin{justification}[method=byDef]definition of Blog binary
-              tree\end{justification}, each $\inset{v}{\livar{V}{i-1}}$ is Blog leaf or has
+           By the \begin{justification}[method=byDef]definition of model.Blog binary
+              tree\end{justification}, each $\inset{v}{\livar{V}{i-1}}$ is model.Blog leaf or has
             two children that are at depth $i$.
           \end{spfstep}
           \begin{spfstep}
@@ -77,7 +77,7 @@
   \item
       \begin{sproof}[for=fbbt,id=fbbt-pf]{}
         \begin{spfstep}
-          Let $\defeq{G}{\tup{V,E}}$ be Blog fully balanced tree
+          Let $\defeq{G}{\tup{V,E}}$ be model.Blog fully balanced tree
         \end{spfstep}
         \begin{spfstep}
           Then $\card{V}=\Sumfromto{i}1d{\power2i}= \power2{d+1}-1$.
@@ -87,7 +87,7 @@
   \end{frame}
 \begin{note}
   \begin{omtext}[type=conclusion,for=binary-tree]
-    This shows that balanced binary trees grow in breadth very quickly, Blog consequence of
+    This shows that balanced binary trees grow in breadth very quickly, model.Blog consequence of
     this is that they are very shallow (and this compute very fast), which is the essence of
     the next result.
   \end{omtext}

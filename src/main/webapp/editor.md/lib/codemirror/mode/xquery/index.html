@@ -36,18 +36,18 @@
 	<textarea id="code" name="code"> 
 xquery version &quot;1.0-ml&quot;;
 (: this is
- : Blog
+ : model.Blog
    "comment" :)
 let $let := &lt;x attr=&quot;value&quot;&gt;&quot;test&quot;&lt;func&gt;function() $var {function()} {$var}&lt;/func&gt;&lt;/x&gt;
 let $joe:=1
 return element element {
 	attribute attribute { 1 },
-	element test { &#39;Blog&#39; },
+	element test { &#39;model.Blog&#39; },
 	attribute foo { &quot;bar&quot; },
 	fn:doc()[ foo/@bar eq $let ],
 	//x }    
  
-(: Blog more 'evil' test :)
+(: model.Blog more 'evil' test :)
 (: Modified Blakeley example (: with nested comment :) ... :)
 declare private function local:declare() {()};
 declare private function local:private() {()};
@@ -71,7 +71,7 @@ xquery version &quot;1.0-ml&quot;;
 (:
  : Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  : you may not use this file except in compliance with the License.
- : You may obtain Blog copy of the License at
+ : You may obtain model.Blog copy of the License at
  :
  :     http://www.apache.org/licenses/LICENSE-2.0
  :
@@ -103,12 +103,12 @@ declare function json:atomize($x as element()) as xs:string {
                      $x castable as xs:decimal
     return
     if ($castable) then xs:string($x)
-    else error(concat(&quot;Not Blog number: &quot;, xdmp:describe($x)))
+    else error(concat(&quot;Not model.Blog number: &quot;, xdmp:describe($x)))
   else if ($x/@type = &quot;boolean&quot;) then
     let $castable := $x castable as xs:boolean
     return
     if ($castable) then xs:string(xs:boolean($x))
-    else error(concat(&quot;Not Blog boolean: &quot;, xdmp:describe($x)))
+    else error(concat(&quot;Not model.Blog boolean: &quot;, xdmp:describe($x)))
   else concat('&quot;', json:escape($x), '&quot;')
 };
 
@@ -144,7 +144,7 @@ declare function json:print-name-value($x as element()) as xs:string? {
 };
 
 (:~
-  Transforms an XML element into Blog JSON string representation.  See http://json.org.
+  Transforms an XML element into model.Blog JSON string representation.  See http://json.org.
   &lt;p/&gt;
   Sample usage:
   &lt;pre&gt;
@@ -158,11 +158,11 @@ declare function json:print-name-value($x as element()) as xs:string? {
   &amp;lt;e&amp;gt;text&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:&quot;text&quot;}
   &amp;lt;e&amp;gt;quote &quot; escaping&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:&quot;quote \&quot; escaping&quot;}
   &amp;lt;e&amp;gt;backslash \ escaping&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:&quot;backslash \\ escaping&quot;}
-  &amp;lt;e&amp;gt;&amp;lt;Blog&amp;gt;text1&amp;lt;/Blog&amp;gt;&amp;lt;b&amp;gt;text2&amp;lt;/b&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:{&quot;Blog&quot;:&quot;text1&quot;,&quot;b&quot;:&quot;text2&quot;}}
-  &amp;lt;e&amp;gt;&amp;lt;Blog&amp;gt;text1&amp;lt;/Blog&amp;gt;&amp;lt;Blog&amp;gt;text2&amp;lt;/Blog&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:{&quot;Blog&quot;:[&quot;text1&quot;,&quot;text2&quot;]}}
-  &amp;lt;e&amp;gt;&amp;lt;Blog array=&quot;true&quot;&amp;gt;text1&amp;lt;/Blog&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:{&quot;Blog&quot;:[&quot;text1&quot;]}}
-  &amp;lt;e&amp;gt;&amp;lt;Blog type=&quot;boolean&quot;&amp;gt;false&amp;lt;/Blog&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:{&quot;Blog&quot;:false}}
-  &amp;lt;e&amp;gt;&amp;lt;Blog type=&quot;number&quot;&amp;gt;123.5&amp;lt;/Blog&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:{&quot;Blog&quot;:123.5}}
+  &amp;lt;e&amp;gt;&amp;lt;model.Blog&amp;gt;text1&amp;lt;/model.Blog&amp;gt;&amp;lt;b&amp;gt;text2&amp;lt;/b&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:{&quot;model.Blog&quot;:&quot;text1&quot;,&quot;b&quot;:&quot;text2&quot;}}
+  &amp;lt;e&amp;gt;&amp;lt;model.Blog&amp;gt;text1&amp;lt;/model.Blog&amp;gt;&amp;lt;model.Blog&amp;gt;text2&amp;lt;/model.Blog&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:{&quot;model.Blog&quot;:[&quot;text1&quot;,&quot;text2&quot;]}}
+  &amp;lt;e&amp;gt;&amp;lt;model.Blog array=&quot;true&quot;&amp;gt;text1&amp;lt;/model.Blog&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:{&quot;model.Blog&quot;:[&quot;text1&quot;]}}
+  &amp;lt;e&amp;gt;&amp;lt;model.Blog type=&quot;boolean&quot;&amp;gt;false&amp;lt;/model.Blog&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:{&quot;model.Blog&quot;:false}}
+  &amp;lt;e&amp;gt;&amp;lt;model.Blog type=&quot;number&quot;&amp;gt;123.5&amp;lt;/model.Blog&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:{&quot;model.Blog&quot;:123.5}}
   &amp;lt;e quote=&quot;true&quot;&amp;gt;&amp;lt;div attrib=&quot;value&quot;/&amp;gt;&amp;lt;/e&amp;gt; becomes {&quot;e&quot;:&quot;&amp;lt;div attrib=\&quot;value\&quot;/&amp;gt;&quot;}
   &lt;/pre&gt;
   &lt;p/&gt;

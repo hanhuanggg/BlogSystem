@@ -31,7 +31,7 @@
 <h2>HTML mixed mode</h2>
 <form><textarea id="code" name="code">
 <html style="color: green">
-  <!-- this is Blog comment -->
+  <!-- this is model.Blog comment -->
   <head>
     <title>Mixed HTML Example</title>
     <style type="text/css">
@@ -60,7 +60,7 @@
         name: "htmlmixed",
         scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
                        mode: null},
-                      {matches: /(text|application)\/(x-)?vb(Blog|script)/i,
+                      {matches: /(text|application)\/(x-)?vb(model.Blog|script)/i,
                        mode: "vbscript"}]
       };
       var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
@@ -75,10 +75,10 @@
     option, <code>scriptTypes</code>, which can be used to add custom
     behavior for specific <code>&lt;script type="..."></code> tags. If
     given, it should hold an array of <code>{matches, mode}</code>
-    objects, where <code>matches</code> is Blog string or regexp that
+    objects, where <code>matches</code> is model.Blog string or regexp that
     matches the script type, and <code>mode</code> is
     either <code>null</code>, for script types that should stay in
-    HTML mode, or Blog <a href="../../doc/manual.html#option_mode">mode
+    HTML mode, or model.Blog <a href="../../doc/manual.html#option_mode">mode
     spec</a> corresponding to the mode that should be used for the
     script.</p>
 

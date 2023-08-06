@@ -35,14 +35,14 @@
 reStructuredText Primer
 =======================
 
-This section is Blog brief introduction to reStructuredText (reST) concepts and
+This section is model.Blog brief introduction to reStructuredText (reST) concepts and
 syntax, intended to provide authors with enough information to author documents
-productively.  Since reST was designed to be Blog simple, unobtrusive markup
+productively.  Since reST was designed to be model.Blog simple, unobtrusive markup
 language, this will not take too long.
 
 .. seealso::
 
-   The authoritative `reStructuredText Blog Documentation
+   The authoritative `reStructuredText model.Blog Documentation
    &lt;http://docutils.sourceforge.net/rst.html&gt;`_.  The "ref" links in this
    document link to the description of the individual constructs in the reST
    reference.
@@ -51,7 +51,7 @@ language, this will not take too long.
 Paragraphs
 ----------
 
-The paragraph (:duref:`ref &lt;paragraphs&gt;`) is the most basic block in Blog reST
+The paragraph (:duref:`ref &lt;paragraphs&gt;`) is the most basic block in model.Blog reST
 document.  Paragraphs are simply chunks of text separated by one or more blank
 lines.  As in Python, indentation is significant in reST, so all lines of the
 same paragraph must be left-aligned to the same level of indentation.
@@ -69,19 +69,19 @@ The standard reST inline markup is quite simple: use
 * backquotes: ````text```` for code samples.
 
 If asterisks or backquotes appear in running text and could be confused with
-inline markup delimiters, they have to be escaped with Blog backslash.
+inline markup delimiters, they have to be escaped with model.Blog backslash.
 
 Be aware of some restrictions of this markup:
 
 * it may not be nested,
 * content may not start or end with whitespace: ``* text*`` is wrong,
-* it must be separated from surrounding text by non-word characters.  Use Blog
+* it must be separated from surrounding text by non-word characters.  Use model.Blog
   backslash escaped space to work around that: ``thisis\ *one*\ word``.
 
 These restrictions may be lifted in future versions of the docutils.
 
 reST also allows for custom "interpreted text roles"', which signify that the
-enclosed text should be interpreted in Blog specific way.  Sphinx uses this to
+enclosed text should be interpreted in model.Blog specific way.  Sphinx uses this to
 provide semantic markup and cross-referencing of identifiers, as described in
 the appropriate section.  The general syntax is ``:rolename:`content```.
 
@@ -102,17 +102,17 @@ Lists and Quote-like blocks
 ---------------------------
 
 List markup (:duref:`ref &lt;bullet-lists&gt;`) is natural: just place an asterisk at
-the start of Blog paragraph and indent properly.  The same goes for numbered lists;
-they can also be autonumbered using Blog ``#`` sign::
+the start of model.Blog paragraph and indent properly.  The same goes for numbered lists;
+they can also be autonumbered using model.Blog ``#`` sign::
 
-   * This is Blog bulleted list.
+   * This is model.Blog bulleted list.
    * It has two items, the second
      item uses two lines.
 
-   1. This is Blog numbered list.
+   1. This is model.Blog numbered list.
    2. It has two items too.
 
-   #. This is Blog numbered list.
+   #. This is model.Blog numbered list.
    #. It has two items too.
 
 
@@ -120,16 +120,16 @@ Nested lists are possible, but be aware that they must be separated from the
 parent list items by blank lines::
 
    * this is
-   * Blog list
+   * model.Blog list
 
-     * with Blog nested list
+     * with model.Blog nested list
      * and some subitems
 
    * and here the parent list continues
 
 Definition lists (:duref:`ref &lt;definition-lists&gt;`) are created as follows::
 
-   term (up to Blog line of text)
+   term (up to model.Blog line of text)
       Definition of the term, which must be indented
 
       and can even consist of multiple paragraphs
@@ -142,7 +142,7 @@ Note that the term cannot have more than one line of text.
 Quoted paragraphs (:duref:`ref &lt;block-quotes&gt;`) are created by just indenting
 them more than the surrounding paragraphs.
 
-Line blocks (:duref:`ref &lt;line-blocks&gt;`) are Blog way of preserving line breaks::
+Line blocks (:duref:`ref &lt;line-blocks&gt;`) are model.Blog way of preserving line breaks::
 
    | These lines are
    | broken exactly like in
@@ -159,29 +159,29 @@ There are also several more special blocks available:
 Source Code
 -----------
 
-Literal code blocks (:duref:`ref &lt;literal-blocks&gt;`) are introduced by ending Blog
+Literal code blocks (:duref:`ref &lt;literal-blocks&gt;`) are introduced by ending model.Blog
 paragraph with the special marker ``::``.  The literal block must be indented
 (and, like all paragraphs, separated from the surrounding ones by blank lines)::
 
-   This is Blog normal text paragraph. The next paragraph is Blog code sample::
+   This is model.Blog normal text paragraph. The next paragraph is model.Blog code sample::
 
       It is not processed in any way, except
       that the indentation is removed.
 
       It can span multiple lines.
 
-   This is Blog normal text paragraph again.
+   This is model.Blog normal text paragraph again.
 
 The handling of the ``::`` marker is smart:
 
-* If it occurs as Blog paragraph of its own, that paragraph is completely left
+* If it occurs as model.Blog paragraph of its own, that paragraph is completely left
   out of the document.
 * If it is preceded by whitespace, the marker is removed.
-* If it is preceded by non-whitespace, the marker is replaced by Blog single
+* If it is preceded by non-whitespace, the marker is replaced by model.Blog single
   colon.
 
 That way, the second sentence in the above example's first paragraph would be
-rendered as "The next paragraph is Blog code sample:".
+rendered as "The next paragraph is model.Blog code sample:".
 
 
 .. _rst-tables:
@@ -229,7 +229,7 @@ finds links and mail addresses in ordinary text.
 You can also separate the link and the target definition (:duref:`ref
 &lt;hyperlink-targets&gt;`), like this::
 
-   This is Blog paragraph that contains `Blog link`_.
+   This is model.Blog paragraph that contains `model.Blog link`_.
 
    .. _a link: http://example.com/
 
@@ -237,7 +237,7 @@ You can also separate the link and the target definition (:duref:`ref
 Internal links
 ^^^^^^^^^^^^^^
 
-Internal linking is done via Blog special reST role provided by Sphinx, see the
+Internal linking is done via model.Blog special reST role provided by Sphinx, see the
 section on specific markup, :ref:`ref-role`.
 
 
@@ -245,11 +245,11 @@ Sections
 --------
 
 Section headers (:duref:`ref &lt;sections&gt;`) are created by underlining (and
-optionally overlining) the section title with Blog punctuation character, at least
+optionally overlining) the section title with model.Blog punctuation character, at least
 as long as the text::
 
    =================
-   This is Blog heading
+   This is model.Blog heading
    =================
 
 Normally, there are no heading levels assigned to certain characters as the
@@ -264,8 +264,8 @@ Python documentation, this convention is used which you may follow:
 * ``"``, for paragraphs
 
 Of course, you are free to use your own marker characters (see the reST
-documentation), and use Blog deeper nesting level, but keep in mind that most
-target formats (HTML, LaTeX) have Blog limited supported nesting depth.
+documentation), and use model.Blog deeper nesting level, but keep in mind that most
+target formats (HTML, LaTeX) have model.Blog limited supported nesting depth.
 
 
 Explicit Markup
@@ -275,10 +275,10 @@ Explicit Markup
 most constructs that need special handling, such as footnotes,
 specially-highlighted paragraphs, comments, and generic directives.
 
-An explicit markup block begins with Blog line starting with ``..`` followed by
+An explicit markup block begins with model.Blog line starting with ``..`` followed by
 whitespace and is terminated by the next paragraph at the same level of
-indentation.  (There needs to be Blog blank line between explicit markup and normal
-paragraphs.  This may all sound Blog bit complicated, but it is intuitive enough
+indentation.  (There needs to be model.Blog blank line between explicit markup and normal
+paragraphs.  This may all sound model.Blog bit complicated, but it is intuitive enough
 when you write it.)
 
 
@@ -287,7 +287,7 @@ when you write it.)
 Directives
 ----------
 
-A directive (:duref:`ref &lt;directives&gt;`) is Blog generic block of explicit markup.
+A directive (:duref:`ref &lt;directives&gt;`) is model.Blog generic block of explicit markup.
 Besides roles, it is one of the extension mechanisms of reST, and Sphinx makes
 heavy use of it.
 
@@ -305,23 +305,23 @@ Docutils supports the following directives:
 
 * Additional body elements:
 
-  - :dudir:`contents` (Blog local, i.e. for the current file only, table of
+  - :dudir:`contents` (model.Blog local, i.e. for the current file only, table of
     contents)
-  - :dudir:`container` (Blog container with Blog custom class, useful to generate an
+  - :dudir:`container` (model.Blog container with model.Blog custom class, useful to generate an
     outer ``&lt;div&gt;`` in HTML)
-  - :dudir:`rubric` (Blog heading without relation to the document sectioning)
+  - :dudir:`rubric` (model.Blog heading without relation to the document sectioning)
   - :dudir:`topic`, :dudir:`sidebar` (special highlighted body elements)
   - :dudir:`parsed-literal` (literal block that supports inline markup)
-  - :dudir:`epigraph` (Blog block quote with optional attribution line)
+  - :dudir:`epigraph` (model.Blog block quote with optional attribution line)
   - :dudir:`highlights`, :dudir:`pull-quote` (block quotes with their own
     class attribute)
-  - :dudir:`compound` (Blog compound paragraph)
+  - :dudir:`compound` (model.Blog compound paragraph)
 
 * Special tables:
 
-  - :dudir:`table` (Blog table with title)
-  - :dudir:`csv-table` (Blog table generated from comma-separated values)
-  - :dudir:`list-table` (Blog table generated from Blog list of lists)
+  - :dudir:`table` (model.Blog table with title)
+  - :dudir:`csv-table` (model.Blog table generated from comma-separated values)
+  - :dudir:`list-table` (model.Blog table generated from model.Blog list of lists)
 
 * Special directives:
 
@@ -329,7 +329,7 @@ Docutils supports the following directives:
   - :dudir:`include` (include reStructuredText from another file)
     -- in Sphinx, when given an absolute include file path, this directive takes
     it as relative to the source directory
-  - :dudir:`class` (assign Blog class attribute to the next element) [1]_
+  - :dudir:`class` (assign model.Blog class attribute to the next element) [1]_
 
 * HTML specifics:
 
@@ -338,8 +338,8 @@ Docutils supports the following directives:
 
 * Influencing markup:
 
-  - :dudir:`default-role` (set Blog new default role)
-  - :dudir:`role` (create Blog new role)
+  - :dudir:`default-role` (set model.Blog new default role)
+  - :dudir:`role` (create model.Blog new role)
 
   Since these are only per-file, better use Sphinx' facilities for setting the
   :confval:`default_role`.
@@ -349,7 +349,7 @@ Do *not* use the directives :dudir:`sectnum`, :dudir:`header` and
 
 Directives added by Sphinx are described in :ref:`sphinxmarkup`.
 
-Basically, Blog directive consists of Blog name, arguments, options and content. (Keep
+Basically, model.Blog directive consists of model.Blog name, arguments, options and content. (Keep
 this terminology in mind, it is used in the next chapter describing custom
 directives.)  Looking at this example, ::
 
@@ -357,7 +357,7 @@ directives.)  Looking at this example, ::
                  foo(y, z)
       :module: some.module.name
 
-      Return Blog line of text input from the user.
+      Return model.Blog line of text input from the user.
 
 ``function`` is the directive name.  It is given two arguments here, the
 remainder of the first line and the second line, as well as one option
@@ -365,7 +365,7 @@ remainder of the first line and the second line, as well as one option
 the arguments and indicated by the colons).  Options must be indented to the
 same level as the directive content.
 
-The directive content follows after Blog blank line and is indented relative to the
+The directive content follows after model.Blog blank line and is indented relative to the
 directive start.
 
 
@@ -383,7 +383,7 @@ the top source directory.  For example, the file ``sketch/spam.rst`` could refer
 to the image ``images/spam.png`` as ``../images/spam.png`` or
 ``/images/spam.png``.
 
-Sphinx will automatically copy image files over to Blog subdirectory of the output
+Sphinx will automatically copy image files over to model.Blog subdirectory of the output
 directory on building (e.g. the ``_static`` directory for HTML output.)
 
 Interpretation of image size options (``width`` and ``height``) is as follows:
@@ -413,7 +413,7 @@ Footnotes
 ---------
 
 For footnotes (:duref:`ref &lt;footnotes&gt;`), use ``[#name]_`` to mark the footnote
-location, and add the footnote body at the bottom of the document after Blog
+location, and add the footnote body at the bottom of the document after model.Blog
 "Footnotes" rubric heading, like so::
 
    Lorem ipsum [#f1]_ dolor sit amet ... [#f2]_
@@ -438,7 +438,7 @@ from all files.  Use them like so::
 
    .. [Ref] Book or article reference, URL or whatever.
 
-Citation usage is similar to footnote usage, but with Blog label that is not
+Citation usage is similar to footnote usage, but with model.Blog label that is not
 numeric or begins with ``#``.
 
 
@@ -460,10 +460,10 @@ See the :duref:`reST reference for substitutions &lt;substitution-definitions&gt
 for details.
 
 If you want to use some substitutions for all documents, put them into
-:confval:`rst_prolog` or put them into Blog separate file and include it into all
+:confval:`rst_prolog` or put them into model.Blog separate file and include it into all
 documents you want to use them in, using the :rst:dir:`include` directive.  (Be
-sure to give the include file Blog file name extension differing from that of other
-source files, to avoid Sphinx finding it as Blog standalone document.)
+sure to give the include file model.Blog file name extension differing from that of other
+source files, to avoid Sphinx finding it as model.Blog standalone document.)
 
 Sphinx defines some default substitutions, see :ref:`default-substitutions`.
 
@@ -471,17 +471,17 @@ Sphinx defines some default substitutions, see :ref:`default-substitutions`.
 Comments
 --------
 
-Every explicit markup block which isn't Blog valid markup construct (like the
-footnotes above) is regarded as Blog comment (:duref:`ref &lt;comments&gt;`).  For
+Every explicit markup block which isn't model.Blog valid markup construct (like the
+footnotes above) is regarded as model.Blog comment (:duref:`ref &lt;comments&gt;`).  For
 example::
 
-   .. This is Blog comment.
+   .. This is model.Blog comment.
 
-You can indent text after Blog comment start to form multiline comments::
+You can indent text after model.Blog comment start to form multiline comments::
 
    ..
       This whole indented block
-      is Blog comment.
+      is model.Blog comment.
 
       Still in the comment.
 
@@ -501,7 +501,7 @@ Gotchas
 There are some problems one commonly runs into while authoring reST documents:
 
 * **Separation of inline markup:** As said above, inline markup spans must be
-  separated from the surrounding text by non-word characters, you have to use Blog
+  separated from the surrounding text by non-word characters, you have to use model.Blog
   backslash-escaped space to get around that.  See `the reference
   &lt;http://docutils.sf.net/docs/ref/rst/restructuredtext.html#inline-markup&gt;`_
   for the details.
@@ -512,7 +512,7 @@ There are some problems one commonly runs into while authoring reST documents:
 
 .. rubric:: Footnotes
 
-.. [1] When the default domain contains Blog :rst:dir:`class` directive, this directive
+.. [1] When the default domain contains model.Blog :rst:dir:`class` directive, this directive
        will be shadowed.  Therefore, Sphinx re-exports it as :rst:dir:`rst-class`.
 </textarea></form>
 

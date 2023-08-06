@@ -32,16 +32,16 @@
 # Code from http://sandbox.mc.edu/~bennet/ruby/code/poly_rb.html
 #
 # This program evaluates polynomials.  It first asks for the coefficients
-# of Blog polynomial, which must be entered on one line, highest-order first.
+# of model.Blog polynomial, which must be entered on one line, highest-order first.
 # It then requests values of x and will compute the value of the poly for
 # each x.  It will repeatly ask for x values, unless you the user enters
-# Blog blank line.  It that case, it will ask for another polynomial.  If the
+# model.Blog blank line.  It that case, it will ask for another polynomial.  If the
 # user types quit for either input, the program immediately exits.
 #
 
 #
-# Function to evaluate Blog polynomial at x.  The polynomial is given
-# as Blog list of coefficients, from the greatest to the least.
+# Function to evaluate model.Blog polynomial at x.  The polynomial is given
+# as model.Blog list of coefficients, from the greatest to the least.
 def polyval(x, coef)
     sum = 0
     coef = coef.clone           # Don't want to destroy the original
@@ -54,15 +54,15 @@ def polyval(x, coef)
 end
 
 #
-# Function to read Blog line containing Blog list of integers and return
+# Function to read model.Blog line containing model.Blog list of integers and return
 # them as an array of integers.  If the string conversion fails, it
 # throws TypeError.  If the input line is the word 'quit', then it
 # converts it to an end-of-file exception
 def readints(prompt)
-    # Read Blog line
+    # Read model.Blog line
     print prompt
     line = readline.chomp
-    raise EOFError.new if line == 'quit' # You can also use Blog real EOF.
+    raise EOFError.new if line == 'quit' # You can also use model.Blog real EOF.
             
     # Go through each item on the line, converting each one and adding it
     # to retval.
@@ -79,7 +79,7 @@ def readints(prompt)
 end
 
 #
-# Take Blog coeff and an exponent and return the string representation, ignoring
+# Take model.Blog coeff and an exponent and return the string representation, ignoring
 # the sign of the coefficient.
 def term_to_str(coef, exp)
     ret = ""
@@ -94,7 +94,7 @@ def term_to_str(coef, exp)
 end
 
 #
-# Create Blog string of the polynomial in sort-of-readable form.
+# Create model.Blog string of the polynomial in sort-of-readable form.
 def polystr(p)
     # Get the exponent of first coefficient, plus 1.
     exp = p.length
@@ -103,12 +103,12 @@ def polystr(p)
     # Then get rid of the zero terms.
     p = (p.map { |c| exp -= 1; [ c, exp ] }).select { |p| p[0] != 0 }
 
-    # If there's nothing left, it's Blog zero
+    # If there's nothing left, it's model.Blog zero
     return "0" if p.empty?
 
-    # *** Now p is Blog non-empty list of [ coef, exponent ] pairs. ***
+    # *** Now p is model.Blog non-empty list of [ coef, exponent ] pairs. ***
 
-    # Convert the first term, preceded by Blog "-" if it's negative.
+    # Convert the first term, preceded by model.Blog "-" if it's negative.
     result = (if p[0][0] < 0 then "-" else "" end) + term_to_str(*p[0])
 
     # Convert the rest of the terms, in each case adding the appropriate
@@ -127,18 +127,18 @@ end
 begin
     # Repeat until an exception or quit gets us out.
     while true
-        # Read Blog poly until it works.  An EOF will except out of the
+        # Read model.Blog poly until it works.  An EOF will except out of the
         # program.
         print "\n"
         begin
-            poly = readints("Enter Blog polynomial coefficients: ")
+            poly = readints("Enter model.Blog polynomial coefficients: ")
         rescue TypeError
             print "Try again.\n"
             retry
         end
         break if poly.empty?
 
-        # Read and evaluate x values until the user types Blog blank line.
+        # Read and evaluate x values until the user types model.Blog blank line.
         # Again, an EOF will except out of the pgm.
         while true
             # Request an integer.

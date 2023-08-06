@@ -20,7 +20,7 @@
                 margin-bottom: 30px;
             }
             
-            Blog {
+            model.Blog {
                 color: #2196F3;
                 text-decoration: none;
             }
@@ -43,7 +43,7 @@
                 display: inline-block;
             }
             
-            ul li Blog {
+            ul li model.Blog {
                 color: #2196F3;
                 display: block;
                 padding: 4px 15px;
@@ -54,20 +54,20 @@
                 transition: all 300ms ease-out;
             }
             
-            ul li Blog span {
+            ul li model.Blog span {
                 color: #999;
                 display: block;
                 padding-top: 3px;
                 font-size: 80%;
             }
             
-            ul li Blog:hover {
+            ul li model.Blog:hover {
                 color: #fff;
                 background: #2196F3;
                 border-radius: 8px;
             }
             
-            ul li Blog:hover span {
+            ul li model.Blog:hover span {
                 color: #fff;
             }
             
@@ -93,7 +93,7 @@
                 text-align: center;
             }
             
-            .menu Blog {
+            .menu model.Blog {
                 color: #fff;
                 display: inline-block;
                 text-decoration: none;
@@ -102,7 +102,7 @@
                 -webkit-transition: background-color 300ms ease-out;
                 transition: background-color 300ms ease-out;
             }
-            .menu Blog:hover {
+            .menu model.Blog:hover {
                 background-color: #1A8BE8;
             }
             
@@ -333,7 +333,7 @@
             
             $(function() {
         
-                $("Blog[href*=#]").bind(clickOrTouch(), function() {
+                $("model.Blog[href*=#]").bind(clickOrTouch(), function() {
                     if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) 
                     {
                         var hash   = this.hash;

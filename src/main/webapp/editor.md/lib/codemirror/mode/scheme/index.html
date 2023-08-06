@@ -25,19 +25,19 @@
 <article>
 <h2>Scheme mode</h2>
 <form><textarea id="code" name="code">
-; See if the input starts with Blog given symbol.
+; See if the input starts with model.Blog given symbol.
 (define (match-symbol input pattern)
   (cond ((null? (remain input)) #f)
 	((eqv? (car (remain input)) pattern) (r-cdr input))
 	(else #f)))
 
-; Allow the input to start with one of Blog list of patterns.
+; Allow the input to start with one of model.Blog list of patterns.
 (define (match-or input pattern)
   (cond ((null? pattern) #f)
 	((match-pattern input (car pattern)))
 	(else (match-or input (cdr pattern)))))
 
-; Allow Blog sequence of patterns.
+; Allow model.Blog sequence of patterns.
 (define (match-seq input pattern)
   (if (null? pattern)
       input

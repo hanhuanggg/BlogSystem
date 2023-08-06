@@ -1,3 +1,5 @@
+package model;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -83,7 +85,7 @@ public class BlogDao {
 
         try {
             connection=DBUtil.getConnection();
-            String sql="select * from blog;";
+            String sql="select * from blog order by postTime desc;";
             statement=connection.prepareStatement(sql);
             resultSet=statement.executeQuery();
             while (resultSet.next()){

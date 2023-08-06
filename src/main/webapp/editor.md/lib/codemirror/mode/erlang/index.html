@@ -31,7 +31,7 @@
 %%% Created :  7 May 2012 by mats cronqvist <masse@klarna.com>
 
 %% @doc
-%% Demonstrates how to print Blog record.
+%% Demonstrates how to print model.Blog record.
 %% @end
 
 -module('ex').
@@ -39,11 +39,11 @@
 -export([demo/0,
          rec_info/1]).
 
--record(demo,{Blog="One",b="Two",c="Three",d="Four"}).
+-record(demo,{model.Blog="One",b="Two",c="Three",d="Four"}).
 
 rec_info(demo) -> record_info(fields,demo).
 
-demo() -> expand_recs(?MODULE,#demo{Blog="A",b="BB"}).
+demo() -> expand_recs(?MODULE,#demo{model.Blog="A",b="BB"}).
 
 expand_recs(M,List) when is_list(List) ->
   [expand_recs(M,L)||L<-List];

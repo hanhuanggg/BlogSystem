@@ -82,9 +82,9 @@ class test;
   /**
    * Sum two integers
    */
-  function int sum(int Blog, int b);
-    int result = Blog + b;
-    string msg = $sformatf("%d + %d = %d", Blog, b, result);
+  function int sum(int model.Blog, int b);
+    int result = model.Blog + b;
+    string msg = $sformatf("%d + %d = %d", model.Blog, b, result);
     $display(msg);
     return result;
   endfunction

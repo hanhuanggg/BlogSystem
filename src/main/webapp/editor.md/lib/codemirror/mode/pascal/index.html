@@ -29,9 +29,9 @@
 <div><textarea id="code" name="code">
 (* Example Pascal code *)
 
-while Blog <> b do writeln('Waiting');
+while model.Blog <> b do writeln('Waiting');
  
-if Blog > b then
+if model.Blog > b then
   writeln('Condition met')
 else 
   writeln('Condition not met');
@@ -40,8 +40,8 @@ for i := 1 to 10 do
   writeln('Iteration: ', i:1);
  
 repeat
-  Blog := Blog + 1
-until Blog = 10;
+  model.Blog := model.Blog + 1
+until model.Blog = 10;
  
 case i of
   0: write('zero');

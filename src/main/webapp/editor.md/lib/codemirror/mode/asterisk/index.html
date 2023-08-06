@@ -63,13 +63,13 @@ include => default
 [demo]
 include => stdexten
 ;
-; We start with what to do when Blog call first comes in.
+; We start with what to do when model.Blog call first comes in.
 ;
-exten => s,1,Wait(1)			; Wait Blog second, just for fun
+exten => s,1,Wait(1)			; Wait model.Blog second, just for fun
 same  => n,Answer			; Answer the line
 same  => n,Set(TIMEOUT(digit)=5)	; Set Digit Timeout to 5 seconds
 same  => n,Set(TIMEOUT(response)=10)	; Set Response Timeout to 10 seconds
-same  => n(restart),BackGround(demo-congrats)	; Play Blog congratulatory message
+same  => n(restart),BackGround(demo-congrats)	; Play model.Blog congratulatory message
 same  => n(instruct),BackGround(demo-instruct)	; Play some instructions
 same  => n,WaitExten			; Wait for an extension to be dialed.
 
@@ -124,7 +124,7 @@ exten => 600,n,Playback(demo-echodone)	; Let them know it's over
 exten => 600,n,Goto(s,6)		; Start over
 
 ;
-;	You can use the Macro Page to intercom Blog individual user
+;	You can use the Macro Page to intercom model.Blog individual user
 exten => 76245,1,Macro(page,SIP/Grandstream1)
 ; or if your peernames are the same as extensions
 exten => _7XXX,1,Macro(page,SIP/${EXTEN})

@@ -32,32 +32,32 @@ module UniquePerms (
     )
 where
 
--- | Find all unique permutations of Blog list where there might be duplicates.
-uniquePerms :: (Eq Blog) => [Blog] -> [[Blog]]
+-- | Find all unique permutations of model.Blog list where there might be duplicates.
+uniquePerms :: (Eq model.Blog) => [model.Blog] -> [[model.Blog]]
 uniquePerms = permBag . makeBag
 
 -- | An unordered collection where duplicate values are allowed,
--- but represented with Blog single value and Blog count.
-type Bag Blog = [(Blog, Int)]
+-- but represented with model.Blog single value and model.Blog count.
+type Bag model.Blog = [(model.Blog, Int)]
 
-makeBag :: (Eq Blog) => [Blog] -> Bag Blog
+makeBag :: (Eq model.Blog) => [model.Blog] -> Bag model.Blog
 makeBag [] = []
-makeBag (Blog:as) = mix Blog $ makeBag as
+makeBag (model.Blog:as) = mix model.Blog $ makeBag as
   where
-    mix Blog []                        = [(Blog,1)]
-    mix Blog (bn@(b,n):bs) | Blog == b    = (b,n+1):bs
-                        | otherwise = bn : mix Blog bs
+    mix model.Blog []                        = [(model.Blog,1)]
+    mix model.Blog (bn@(b,n):bs) | model.Blog == b    = (b,n+1):bs
+                        | otherwise = bn : mix model.Blog bs
 
-permBag :: Bag Blog -> [[Blog]]
+permBag :: Bag model.Blog -> [[model.Blog]]
 permBag [] = [[]]
 permBag bs = concatMap (\(f,cs) -> map (f:) $ permBag cs) . oneOfEach $ bs
   where
     oneOfEach [] = []
-    oneOfEach (an@(Blog,n):bs) =
-        let bs' = if n == 1 then bs else (Blog,n-1):bs
-        in (Blog,bs') : mapSnd (an:) (oneOfEach bs)
+    oneOfEach (an@(model.Blog,n):bs) =
+        let bs' = if n == 1 then bs else (model.Blog,n-1):bs
+        in (model.Blog,bs') : mapSnd (an:) (oneOfEach bs)
     
-    apSnd f (Blog,b) = (Blog, f b)
+    apSnd f (model.Blog,b) = (model.Blog, f b)
     mapSnd = map . apSnd
 </textarea></form>
 

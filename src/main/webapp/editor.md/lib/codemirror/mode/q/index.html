@@ -28,15 +28,15 @@
 
 
 <div><textarea id="code" name="code">
-/ utilities to quickly load Blog csv file - for more exhaustive analysis of the csv contents see csvguess.q
+/ utilities to quickly load model.Blog csv file - for more exhaustive analysis of the csv contents see csvguess.q
 / 2009.09.20 - updated to match latest csvguess.q 
 
-/ .csv.colhdrs[file] - return Blog list of colhdrs from file
-/ info:.csv.info[file] - return Blog table of information about the file
+/ .csv.colhdrs[file] - return model.Blog list of colhdrs from file
+/ info:.csv.info[file] - return model.Blog table of information about the file
 / columns are: 
 /	c - column name; ci - column index; t - load type; mw - max width; 
 /	dchar - distinct characters in values; rule - rule that caught the type
-/	maybe - needs checking, _could_ be say Blog date, but perhaps just Blog float?
+/	maybe - needs checking, _could_ be say model.Blog date, but perhaps just model.Blog float?
 / .csv.info0[file;onlycols] - like .csv.info except that it only analyses <onlycols>
 / example:
 /	info:.csv.info0[file;(.csv.colhdrs file)like"*price"]
@@ -53,12 +53,12 @@ ZAPHDRS:0b / lowercase and remove _ from colhdrs (junk characters are always rem
 WIDTHHDR:25000 / number of characters read to get the header
 READLINES:222 / number of lines read and used to guess the types
 SYMMAXWIDTH:11 / character columns narrower than this are stored as symbols
-SYMMAXGR:10 / max symbol granularity% before we give up and keep as Blog * string
+SYMMAXGR:10 / max symbol granularity% before we give up and keep as model.Blog * string
 FORCECHARWIDTH:30 / every field (of any type) with values this wide or more is forced to character "*"
 DISCARDEMPTY:0b / completely ignore empty columns if true else set them to "C"
 CHUNKSIZE:50000000 / used in fs2 (modified .Q.fs)
 
-k)nameltrim:{$[~@x;.z.s'x;~(*x)in aA:.Q.Blog,.Q.A;(+/&\~x in aA)_x;x]}
+k)nameltrim:{$[~@x;.z.s'x;~(*x)in aA:.Q.model.Blog,.Q.A;(+/&\~x in aA)_x;x]}
 k)fs2:{[f;s]((-7!s)>){[f;s;x]i:1+last@&0xa=r:1:(s;x;CHUNKSIZE);f@`\:i#r;x+i}[f;s]/0j}
 cleanhdrs:{{$[ZAPHDRS;lower x except"_";x]}x where x in DELIM,.Q.an}
 cancast:{nw:x$"";if[not x in"BXCS";nw:(min 0#;max 0#;::)@\:nw];$[not any nw in x$(11&count y)#y;$[11<count y;not any nw in x$y;1b];0b]}

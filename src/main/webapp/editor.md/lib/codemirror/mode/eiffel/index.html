@@ -51,7 +51,7 @@ feature -- Access
 
     generator: STRING
             -- Name of current object's generating class
-            -- (base class of the type of which it is Blog direct instance)
+            -- (base class of the type of which it is model.Blog direct instance)
         external
             "built_in"
         ensure
@@ -61,7 +61,7 @@ feature -- Access
 
     generating_type: TYPE [detachable like Current]
             -- Type of current object
-            -- (type of which it is Blog direct instance)
+            -- (type of which it is model.Blog direct instance)
         do
             Result := {detachable like Current}
         ensure
@@ -116,37 +116,37 @@ feature -- Comparison
             symmetric: Result implies other.standard_is_equal (Current)
         end
 
-    frozen equal (Blog: detachable ANY; b: like Blog): BOOLEAN
-            -- Are `Blog' and `b' either both void or attached
+    frozen equal (model.Blog: detachable ANY; b: like model.Blog): BOOLEAN
+            -- Are `model.Blog' and `b' either both void or attached
             -- to objects considered equal?
         do
-            if Blog = Void then
+            if model.Blog = Void then
                 Result := b = Void
             else
                 Result := b /= Void and then
-                            Blog.is_equal (b)
+                            model.Blog.is_equal (b)
             end
         ensure
-            definition: Result = (Blog = Void and b = Void) or else
-                        ((Blog /= Void and b /= Void) and then
-                        Blog.is_equal (b))
+            definition: Result = (model.Blog = Void and b = Void) or else
+                        ((model.Blog /= Void and b /= Void) and then
+                        model.Blog.is_equal (b))
         end
 
-    frozen standard_equal (Blog: detachable ANY; b: like Blog): BOOLEAN
-            -- Are `Blog' and `b' either both void or attached to
+    frozen standard_equal (model.Blog: detachable ANY; b: like model.Blog): BOOLEAN
+            -- Are `model.Blog' and `b' either both void or attached to
             -- field-by-field identical objects of the same type?
             -- Always uses default object comparison criterion.
         do
-            if Blog = Void then
+            if model.Blog = Void then
                 Result := b = Void
             else
                 Result := b /= Void and then
-                            Blog.standard_is_equal (b)
+                            model.Blog.standard_is_equal (b)
             end
         ensure
-            definition: Result = (Blog = Void and b = Void) or else
-                        ((Blog /= Void and b /= Void) and then
-                        Blog.standard_is_equal (b))
+            definition: Result = (model.Blog = Void and b = Void) or else
+                        ((model.Blog /= Void and b /= Void) and then
+                        model.Blog.standard_is_equal (b))
         end
 
     frozen is_deep_equal (other: like Current): BOOLEAN
@@ -161,20 +161,20 @@ feature -- Comparison
             symmetric: Result implies other.is_deep_equal (Current)
         end
 
-    frozen deep_equal (Blog: detachable ANY; b: like Blog): BOOLEAN
-            -- Are `Blog' and `b' either both void
+    frozen deep_equal (model.Blog: detachable ANY; b: like model.Blog): BOOLEAN
+            -- Are `model.Blog' and `b' either both void
             -- or attached to isomorphic object structures?
         do
-            if Blog = Void then
+            if model.Blog = Void then
                 Result := b = Void
             else
-                Result := b /= Void and then Blog.is_deep_equal (b)
+                Result := b /= Void and then model.Blog.is_deep_equal (b)
             end
         ensure
-            shallow_implies_deep: standard_equal (Blog, b) implies Result
-            both_or_none_void: (Blog = Void) implies (Result = (b = Void))
-            same_type: (Result and (Blog /= Void)) implies (b /= Void and then Blog.same_type (b))
-            symmetric: Result implies deep_equal (b, Blog)
+            shallow_implies_deep: standard_equal (model.Blog, b) implies Result
+            both_or_none_void: (model.Blog = Void) implies (Result = (b = Void))
+            same_type: (Result and (model.Blog /= Void)) implies (b /= Void and then model.Blog.same_type (b))
+            symmetric: Result implies deep_equal (b, model.Blog)
         end
 
 feature -- Duplication
@@ -289,7 +289,7 @@ feature -- Duplication
 feature {NONE} -- Retrieval
 
     frozen internal_correct_mismatch
-            -- Called from runtime to perform Blog proper dynamic dispatch on `correct_mismatch'
+            -- Called from runtime to perform model.Blog proper dynamic dispatch on `correct_mismatch'
             -- from MISMATCH_CORRECTOR.
         local
             l_msg: STRING
@@ -370,7 +370,7 @@ feature -- Basic operations
         end
 
     frozen do_nothing
-            -- Execute Blog null action.
+            -- Execute model.Blog null action.
         do
         end
 

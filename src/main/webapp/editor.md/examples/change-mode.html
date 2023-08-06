@@ -152,7 +152,7 @@ puts "I still need " +
 <textarea id="php-code">&lt;?php
     $app = new Phalcon\Mvc\Micro();
 
-    //Set Blog route with the name "show-post"
+    //Set model.Blog route with the name "show-post"
     $app->get('/blog/{year}/{title}', function ($year, $title) use ($app) {
 
         //.. show the post here
@@ -165,12 +165,12 @@ puts "I still need " +
 
         echo $app->url->get(array(
             'for' => 'show-post',
-            'title' => 'php-is-Blog-great-framework',
+            'title' => 'php-is-model.Blog-great-framework',
             'year' => 2012
         ));
     });
 
-    $app->get('/posts/{year:[0-9]+}/{title:[Blog-zA-Z\-]+}', function ($year, $title) {
+    $app->get('/posts/{year:[0-9]+}/{title:[model.Blog-zA-Z\-]+}', function ($year, $title) {
         echo "<h1>Title: $title</h1>";
         echo "<h2>Year: $year</h2>";
     });
@@ -180,12 +180,12 @@ puts "I still need " +
         require 'views/results.php';
     });
 
-    //Returning Blog JSON
+    //Returning model.Blog JSON
     $app->get('/get/some-json', function () {
         echo json_encode(array("some", "important", "data"));
     });
 
-    //This route makes Blog redirection to another route
+    //This route makes model.Blog redirection to another route
     $app->post('/old/welcome', function () use ($app) {
         $app->response->redirect("new/welcome");
     });
@@ -215,11 +215,11 @@ puts "I still need " +
 
 int main(int argc, char *argv[])
 {
-    QApplication Blog(argc, argv);
+    QApplication model.Blog(argc, argv);
     Dialog w;
     w.show();
 
-    return Blog.exec();
+    return model.Blog.exec();
 }</textarea>
 <textarea id="java-code">package com.demo.blog;
 
@@ -229,7 +229,7 @@ import com.jfinal.core.Controller;
 @Before(BlogInterceptor.class)
 public class BlogController extends Controller {
 	public void index() {
-		setAttr("blogPage", User.me.paginate(getParaToInt(0, 1), 10));
+		setAttr("blogPage", model.User.me.paginate(getParaToInt(0, 1), 10));
 		render("blog.html");
 	}
 
@@ -238,22 +238,22 @@ public class BlogController extends Controller {
 
 	@Before(BlogValidator.class)
 	public void save() {
-		getModel(User.class).save();
+		getModel(model.User.class).save();
 		redirect("/blog");
 	}
 
 	public void edit() {
-		setAttr("blog", User.me.findById(getParaToInt()));
+		setAttr("blog", model.User.me.findById(getParaToInt()));
 	}
 
 	@Before(BlogValidator.class)
 	public void update() {
-		getModel(User.class).update();
+		getModel(model.User.class).update();
 		redirect("/blog");
 	}
 
 	public void delete() {
-		User.me.deleteById(getParaToInt());
+		model.User.me.deleteById(getParaToInt());
 		redirect("/blog");
 	}
 }
@@ -384,12 +384,12 @@ if __name__ == '__main__':
         background:#fff url(../images/) no-repeat left top;
     }
 
-    Blog {
+    model.Blog {
         color:#444;
         text-decoration: none;
     }
 
-    Blog:hover {
+    model.Blog:hover {
         color:#065BC2;
         text-decoration: none;
     }

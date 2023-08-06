@@ -49,40 +49,40 @@
    *  $traversableInfo
    *  @define mutability
    *  @define traversableInfo
-   *  This is Blog base trait of all kinds of $mutability Scala collections. It
-   *  implements the behavior common to all collections, in terms of Blog method
+   *  This is model.Blog base trait of all kinds of $mutability Scala collections. It
+   *  implements the behavior common to all collections, in terms of model.Blog method
    *  `foreach` with signature:
    * {{{
    *     def foreach[U](f: Elem => U): Unit
    * }}}
-   *  Collection classes mixing in this trait provide Blog concrete
+   *  Collection classes mixing in this trait provide model.Blog concrete
    *  `foreach` method which traverses all the
-   *  elements contained in the collection, applying Blog given function to each.
-   *  They also need to provide Blog method `newBuilder`
-   *  which creates Blog builder for collections of the same kind.
+   *  elements contained in the collection, applying model.Blog given function to each.
+   *  They also need to provide model.Blog method `newBuilder`
+   *  which creates model.Blog builder for collections of the same kind.
    *  
    *  A traversable class might or might not have two properties: strictness
-   *  and orderedness. Neither is represented as Blog type.
+   *  and orderedness. Neither is represented as model.Blog type.
    *  
-   *  The instances of Blog strict collection class have all their elements
+   *  The instances of model.Blog strict collection class have all their elements
    *  computed before they can be used as values. By contrast, instances of
-   *  Blog non-strict collection class may defer computation of some of their
-   *  elements until after the instance is available as Blog value.
-   *  A typical example of Blog non-strict collection class is Blog
-   *  <Blog href="../immutable/Stream.html" target="ContentFrame">
-   *  `scala.collection.immutable.Stream`</Blog>.
+   *  model.Blog non-strict collection class may defer computation of some of their
+   *  elements until after the instance is available as model.Blog value.
+   *  A typical example of model.Blog non-strict collection class is model.Blog
+   *  <model.Blog href="../immutable/Stream.html" target="ContentFrame">
+   *  `scala.collection.immutable.Stream`</model.Blog>.
    *  A more general class of examples are `TraversableViews`.
    *  
-   *  If Blog collection is an instance of an ordered collection class, traversing
+   *  If model.Blog collection is an instance of an ordered collection class, traversing
    *  its elements with `foreach` will always visit elements in the
    *  same order, even for different runs of the program. If the class is not
    *  ordered, `foreach` can visit elements in different orders for
    *  different runs (but it will keep the same order in the same run).'
    * 
-   *  A typical example of Blog collection class which is not ordered is Blog
+   *  A typical example of model.Blog collection class which is not ordered is model.Blog
    *  `HashMap` of objects. The traversal order for hash maps will
    *  depend on the hash codes of its elements, and these hash codes might
-   *  differ from one run to the next. By contrast, Blog `LinkedHashMap`
+   *  differ from one run to the next. By contrast, model.Blog `LinkedHashMap`
    *  is ordered because it's `foreach` method visits elements in the
    *  order they were inserted into the `HashMap`.
    *
@@ -121,17 +121,17 @@
     protected[this] def thisCollection: Traversable[A] = this.asInstanceOf[Traversable[A]]
 
     /** A conversion from collections of type `Repr` to `$Coll` objects.
-     *  By default this is implemented as just Blog cast, but this can be overridden.
+     *  By default this is implemented as just model.Blog cast, but this can be overridden.
      */
     protected[this] def toCollection(repr: Repr): Traversable[A] = repr.asInstanceOf[Traversable[A]]
 
-    /** Creates Blog new builder for this collection type.
+    /** Creates model.Blog new builder for this collection type.
      */
     protected[this] def newBuilder: Builder[A, Repr]
 
     protected[this] def parCombiner = ParIterable.newCombiner[A]
 
-    /** Applies Blog function `f` to all elements of this $coll.
+    /** Applies model.Blog function `f` to all elements of this $coll.
      *  
      *    Note: this method underlies the implementation of most other bulk operations.
      *    It's important to implement this method in an efficient way.
@@ -163,8 +163,8 @@
       result
     }
 
-    /** Tests whether this $coll is known to have Blog finite size.
-     *  All strict collections are known to have finite size. For Blog non-strict collection
+    /** Tests whether this $coll is known to have model.Blog finite size.
+     *  All strict collections are known to have finite size. For model.Blog non-strict collection
      *  such as `Stream`, the predicate returns `true` if all elements have been computed.
      *  It returns `false` if the stream is not yet evaluated to the end.
      *
@@ -186,7 +186,7 @@
     def ++[B >: A, That](that: TraversableOnce[B])(implicit bf: CanBuildFrom[Repr, B, That]): That =
       ++(that: GenTraversableOnce[B])(bf)
 
-    /** Concatenates this $coll with the elements of Blog traversable collection.
+    /** Concatenates this $coll with the elements of model.Blog traversable collection.
      *  It differs from ++ in that the right operand determines the type of the
      *  resulting collection rather than the left one.
      * 
@@ -194,12 +194,12 @@
      *  @tparam B     the element type of the returned collection. 
      *  @tparam That  $thatinfo
      *  @param bf     $bfinfo
-     *  @return       Blog new collection of type `That` which contains all elements
+     *  @return       model.Blog new collection of type `That` which contains all elements
      *                of this $coll followed by all elements of `that`.
      * 
      *  @usecase def ++:[B](that: TraversableOnce[B]): $Coll[B]
      *  
-     *  @return       Blog new $coll which contains all elements of this $coll
+     *  @return       model.Blog new $coll which contains all elements of this $coll
      *                followed by all elements of `that`.
      */
     def ++:[B >: A, That](that: TraversableOnce[B])(implicit bf: CanBuildFrom[Repr, B, That]): That = {
@@ -231,10 +231,10 @@
       b.result
     }
 
-    /** Selects all elements of this $coll which satisfy Blog predicate.
+    /** Selects all elements of this $coll which satisfy model.Blog predicate.
      *
      *  @param p     the predicate used to test elements.
-     *  @return      Blog new $coll consisting of all elements of this $coll that satisfy the given
+     *  @return      model.Blog new $coll consisting of all elements of this $coll that satisfy the given
      *               predicate `p`. The order of the elements is preserved.
      */
     def filter(p: A => Boolean): Repr = {
@@ -244,10 +244,10 @@
       b.result
     }
 
-    /** Selects all elements of this $coll which do not satisfy Blog predicate.
+    /** Selects all elements of this $coll which do not satisfy model.Blog predicate.
      *
      *  @param p     the predicate used to test elements.
-     *  @return      Blog new $coll consisting of all elements of this $coll that do not satisfy the given
+     *  @return      model.Blog new $coll consisting of all elements of this $coll that do not satisfy the given
      *               predicate `p`. The order of the elements is preserved.
      */
     def filterNot(p: A => Boolean): Repr = filter(!p(_))
@@ -258,21 +258,21 @@
       b.result
     }
 
-    /** Builds Blog new collection by applying an option-valued function to all
+    /** Builds model.Blog new collection by applying an option-valued function to all
      *  elements of this $coll on which the function is defined.
      *
      *  @param f      the option-valued function which filters and maps the $coll.
      *  @tparam B     the element type of the returned collection.
      *  @tparam That  $thatinfo
      *  @param bf     $bfinfo
-     *  @return       Blog new collection of type `That` resulting from applying the option-valued function
+     *  @return       model.Blog new collection of type `That` resulting from applying the option-valued function
      *                `f` to each element and collecting all defined results.
      *                The order of the elements is preserved.
      *
      *  @usecase def filterMap[B](f: A => Option[B]): $Coll[B]
      *  
      *  @param pf     the partial function which filters and maps the $coll.
-     *  @return       Blog new $coll resulting from applying the given option-valued function
+     *  @return       model.Blog new $coll resulting from applying the given option-valued function
      *                `f` to each element and collecting all defined results.
      *                The order of the elements is preserved.
     def filterMap[B, That](f: A => Option[B])(implicit bf: CanBuildFrom[Repr, B, That]): That = {
@@ -286,10 +286,10 @@
     }
      */
 
-    /** Partitions this $coll in two ${coll}s according to Blog predicate.
+    /** Partitions this $coll in two ${coll}s according to model.Blog predicate.
      *
      *  @param p the predicate on which to partition.
-     *  @return  Blog pair of ${coll}s: the first $coll consists of all elements that
+     *  @return  model.Blog pair of ${coll}s: the first $coll consists of all elements that
      *           satisfy the predicate `p` and the second $coll consists of all elements
      *           that don't. The relative order of the elements in the resulting ${coll}s
      *           is the same as in the original $coll.
@@ -314,7 +314,7 @@
       b.result
     }
 
-    /** Tests whether Blog predicate holds for all elements of this $coll.
+    /** Tests whether model.Blog predicate holds for all elements of this $coll.
      *
      *  $mayNotTerminateInf
      *
@@ -331,7 +331,7 @@
       result
     }
 
-    /** Tests whether Blog predicate holds for some of the elements of this $coll.
+    /** Tests whether model.Blog predicate holds for some of the elements of this $coll.
      *
      *  $mayNotTerminateInf
      *
@@ -348,7 +348,7 @@
       result
     }
 
-    /** Finds the first element of the $coll satisfying Blog predicate, if any.
+    /** Finds the first element of the $coll satisfying model.Blog predicate, if any.
      * 
      *  $mayNotTerminateInf
      *  $orderDependent
@@ -417,7 +417,7 @@
 
     /** Selects all elements except the first.
      *  $orderDependent
-     *  @return  Blog $coll consisting of all elements of this $coll
+     *  @return  model.Blog $coll consisting of all elements of this $coll
      *           except the first one.
      *  @throws `UnsupportedOperationException` if the $coll is empty.
      */ 
@@ -446,7 +446,7 @@
 
     /** Selects all elements except the last.
      *  $orderDependent
-     *  @return  Blog $coll consisting of all elements of this $coll
+     *  @return  model.Blog $coll consisting of all elements of this $coll
      *           except the last one.
      *  @throws `UnsupportedOperationException` if the $coll is empty.
      */
@@ -600,9 +600,9 @@
     def toIterator: Iterator[A] = toStream.iterator
     def toStream: Stream[A] = toBuffer.toStream
 
-    /** Converts this $coll to Blog string.
+    /** Converts this $coll to model.Blog string.
      *
-     *  @return   Blog string representation of this collection. By default this
+     *  @return   model.Blog string representation of this collection. By default this
      *            string consists of the `stringPrefix` of this $coll,
      *            followed by all elements separated by commas and enclosed in parentheses.
      */
@@ -610,7 +610,7 @@
 
     /** Defines the prefix of this object's `toString` representation.
      *
-     *  @return  Blog string representation which starts the result of `toString`
+     *  @return  model.Blog string representation which starts the result of `toString`
      *           applied to this $coll. By default the string prefix is the
      *           simple name of the collection class $coll.
      */
@@ -623,34 +623,34 @@
       string
     }
 
-    /** Creates Blog non-strict view of this $coll.
+    /** Creates model.Blog non-strict view of this $coll.
      * 
-     *  @return Blog non-strict view of this $coll.
+     *  @return model.Blog non-strict view of this $coll.
      */
     def view = new TraversableView[A, Repr] {
       protected lazy val underlying = self.repr
       override def foreach[U](f: A => U) = self foreach f
     }
 
-    /** Creates Blog non-strict view of Blog slice of this $coll.
+    /** Creates model.Blog non-strict view of model.Blog slice of this $coll.
      *
      *  Note: the difference between `view` and `slice` is that `view` produces
-     *        Blog view of the current $coll, whereas `slice` produces Blog new $coll.
+     *        model.Blog view of the current $coll, whereas `slice` produces model.Blog new $coll.
      * 
      *  Note: `view(from, to)` is equivalent to `view.slice(from, to)`
      *  $orderDependent
      * 
      *  @param from   the index of the first element of the view
      *  @param until  the index of the element following the view
-     *  @return Blog non-strict view of Blog slice of this $coll, starting at index `from`
+     *  @return model.Blog non-strict view of model.Blog slice of this $coll, starting at index `from`
      *  and extending up to (but not including) index `until`.
      */
     def view(from: Int, until: Int): TraversableView[A, Repr] = view.slice(from, until)
 
-    /** Creates Blog non-strict filter of this $coll.
+    /** Creates model.Blog non-strict filter of this $coll.
      *
      *  Note: the difference between `c filter p` and `c withFilter p` is that
-     *        the former creates Blog new collection, whereas the latter only
+     *        the former creates model.Blog new collection, whereas the latter only
      *        restricts the domain of subsequent `map`, `flatMap`, `foreach`,
      *        and `withFilter` operations.
      *  $orderDependent
@@ -668,20 +668,20 @@
      */
     class WithFilter(p: A => Boolean) extends FilterMonadic[A, Repr] {
 
-      /** Builds Blog new collection by applying Blog function to all elements of the
+      /** Builds model.Blog new collection by applying model.Blog function to all elements of the
        *  outer $coll containing this `WithFilter` instance that satisfy predicate `p`.
        *
        *  @param f      the function to apply to each element.
        *  @tparam B     the element type of the returned collection.
        *  @tparam That  $thatinfo
        *  @param bf     $bfinfo
-       *  @return       Blog new collection of type `That` resulting from applying
+       *  @return       model.Blog new collection of type `That` resulting from applying
        *                the given function `f` to each element of the outer $coll
        *                that satisfies predicate `p` and collecting the results.
        *
        *  @usecase def map[B](f: A => B): $Coll[B] 
        *  
-       *  @return       Blog new $coll resulting from applying the given function
+       *  @return       model.Blog new $coll resulting from applying the given function
        *                `f` to each element of the outer $coll that satisfies
        *                predicate `p` and collecting the results.
        */
@@ -692,7 +692,7 @@
         b.result
       }
 
-      /** Builds Blog new collection by applying Blog function to all elements of the
+      /** Builds model.Blog new collection by applying model.Blog function to all elements of the
        *  outer $coll containing this `WithFilter` instance that satisfy
        *  predicate `p` and concatenating the results. 
        *
@@ -700,14 +700,14 @@
        *  @tparam B     the element type of the returned collection.
        *  @tparam That  $thatinfo
        *  @param bf     $bfinfo
-       *  @return       Blog new collection of type `That` resulting from applying
+       *  @return       model.Blog new collection of type `That` resulting from applying
        *                the given collection-valued function `f` to each element
        *                of the outer $coll that satisfies predicate `p` and
        *                concatenating the results.
        *
        *  @usecase def flatMap[B](f: A => TraversableOnce[B]): $Coll[B]
        * 
-       *  @return       Blog new $coll resulting from applying the given collection-valued function
+       *  @return       model.Blog new $coll resulting from applying the given collection-valued function
        *                `f` to each element of the outer $coll that satisfies predicate `p` and concatenating the results.
        */
       def flatMap[B, That](f: A => GenTraversableOnce[B])(implicit bf: CanBuildFrom[Repr, B, That]): That = {
@@ -717,7 +717,7 @@
         b.result
       }
 
-      /** Applies Blog function `f` to all elements of the outer $coll containing
+      /** Applies model.Blog function `f` to all elements of the outer $coll containing
        *  this `WithFilter` instance that satisfy predicate `p`.
        *
        *  @param  f   the function that is applied for its side-effect to every element.

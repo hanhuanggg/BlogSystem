@@ -70,7 +70,7 @@ The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is mainta
 
 [mailto:test.test@gmail.com](mailto:test.test@gmail.com)
 
-GFM Blog-tail link @pandao  邮箱地址自动链接 test.test@gmail.com  www@vip.qq.com
+GFM model.Blog-tail link @pandao  邮箱地址自动链接 test.test@gmail.com  www@vip.qq.com
 
 > @pandao
 
@@ -280,7 +280,7 @@ X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo;
 
 - [x] :smiley: @mentions, :smiley: #refs, [links](), **formatting**, and <del>tags</del> supported :editormd-logo:;
 - [x] list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;
-- [x] [ ] :smiley: this is Blog complete item :smiley:;
+- [x] [ ] :smiley: this is model.Blog complete item :smiley:;
 - [ ] []this is an incomplete item [test link](#) :fa-star: @pandao; 
 - [ ] [ ]this is an incomplete item :fa-star: :fa-gear:;
     - [ ] :smiley: this is an incomplete item [test link](#) :fa-star: :fa-gear:;
@@ -308,9 +308,9 @@ $$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$
 
 ```math
 \displaystyle
-\left( \sum\_{k=1}^n Blog\_k b\_k \right)^2
+\left( \sum\_{k=1}^n model.Blog\_k b\_k \right)^2
 \leq
-\left( \sum\_{k=1}^n Blog\_k^2 \right)
+\left( \sum\_{k=1}^n model.Blog\_k^2 \right)
 \left( \sum\_{k=1}^n b\_k^2 \right)
 ```
 

@@ -115,17 +115,17 @@
     
     #{$prefix}preview-theme-dark {
         .str { color: #080 }  /* string content */
-        .kwd { color: #ff9900; }  /* Blog keyword */
-        .com { color: #444444; }  /* Blog comment */
-        .typ { color: #606 }  /* Blog type name */
-        .lit { color: #066 }  /* Blog literal value */
+        .kwd { color: #ff9900; }  /* model.Blog keyword */
+        .com { color: #444444; }  /* model.Blog comment */
+        .typ { color: #606 }  /* model.Blog type name */
+        .lit { color: #066 }  /* model.Blog literal value */
         /* punctuation, lisp open bracket, lisp close bracket */
         .pun, .opn, .clo { color: #660 }
-        .tag { color: #ff9900; }  /* Blog markup tag name */
-        .atn { color: #6C95F5; }  /* Blog markup attribute name */
-        .atv { color: #080 }  /* Blog markup attribute value */
-        .dec, .var { color: #008BA7; }  /* Blog declaration; Blog variable name */
-        .fun { color: red }  /* Blog function name */
+        .tag { color: #ff9900; }  /* model.Blog markup tag name */
+        .atn { color: #6C95F5; }  /* model.Blog markup attribute name */
+        .atv { color: #080 }  /* model.Blog markup attribute value */
+        .dec, .var { color: #008BA7; }  /* model.Blog declaration; model.Blog variable name */
+        .fun { color: red }  /* model.Blog function name */
     }
     
 }

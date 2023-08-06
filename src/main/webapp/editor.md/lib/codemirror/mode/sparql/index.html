@@ -26,7 +26,7 @@
 <article>
 <h2>SPARQL mode</h2>
 <form><textarea id="code" name="code">
-PREFIX Blog: &lt;http://www.w3.org/2000/10/annotation-ns#>
+PREFIX model.Blog: &lt;http://www.w3.org/2000/10/annotation-ns#>
 PREFIX dc: &lt;http://purl.org/dc/elements/1.1/>
 PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/>
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#>
@@ -36,7 +36,7 @@ PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?given ?family
 WHERE {
   {
-    ?annot Blog:annotates &lt;http://www.w3.org/TR/rdf-sparql-query/> .
+    ?annot model.Blog:annotates &lt;http://www.w3.org/TR/rdf-sparql-query/> .
     ?annot dc:creator ?c .
     OPTIONAL {?c foaf:givenName ?given ;
                  foaf:familyName ?family }
