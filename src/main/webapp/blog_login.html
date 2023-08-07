@@ -23,19 +23,22 @@
     <div class="login-container">
         <!-- 垂直水平居中的登录对话框 -->
         <div class="login-dialog">
+            <form action="login" method="post">
             <h3>登录</h3>
             <div class="row">
                 <span>用户名</span>
-                <input type="text" id="username" placeholder="手机号/邮箱">
+                <input type="text" id="username" placeholder="手机号/邮箱" name="username">
             </div>
             <div class="row">
                 <span>密码</span>
-                <input type="password" id="password">
+                <input type="password" id="password" name="password">
             </div>
             <div class="row">
-                <button id="submit">登录</button>
+                <!-- <button id="submit">登录</button> -->
+                <input type="submit" id="submit" value="登录">
             </div>
-        </div>
+            </form>
+       </div>
     </div>
 </body>
 </html>

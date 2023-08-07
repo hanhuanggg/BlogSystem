@@ -1,12 +1,13 @@
 package model;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class Blog {
     private int blogId;
     private String title;
     private String content;
-    private Timestamp datetime;
+    private Timestamp postTime;
     private int userId;
 
     public int getBlogId() {
@@ -33,12 +34,17 @@ public class Blog {
         this.content = content;
     }
 
-    public Timestamp getDatetime() {
-        return datetime;
+    public Timestamp getPostTimestamp() {
+        return postTime;
+    }
+
+    public String getPostTime(){
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        return simpleDateFormat.format(postTime);
     }
 
     public void setDatetime(Timestamp datetime) {
-        this.datetime = datetime;
+        this.postTime = datetime;
     }
 
     public int getUserId() {

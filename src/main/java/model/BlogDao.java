@@ -26,7 +26,7 @@ public class BlogDao {
             statement=connection.prepareStatement(sql);
             statement.setString(1,blog.getTitle());
             statement.setString(2,blog.getContent());
-            statement.setTimestamp(3,blog.getDatetime());
+            statement.setTimestamp(3,blog.getPostTimestamp());
             statement.setInt(4,blog.getBlogId());
             //3.执行语句
             statement.executeUpdate();
@@ -61,7 +61,7 @@ public class BlogDao {
                 blog.setBlogId(resultSet.getInt("blogId"));
                 blog.setTitle(resultSet.getString("title"));
                 blog.setContent(resultSet.getString("content"));
-                blog.setDatetime(resultSet.getTimestamp("datetime"));
+                blog.setDatetime(resultSet.getTimestamp("postTime"));
                 blog.setUserId(resultSet.getInt("userId"));
             //5.返回结果
                 return blog;
@@ -98,7 +98,7 @@ public class BlogDao {
                 }
                 blog.setContent(content);
                 blog.setTitle(resultSet.getString("title"));
-                blog.setDatetime(resultSet.getTimestamp("datetime"));
+                blog.setDatetime(resultSet.getTimestamp("postTime"));
                 blog.setUserId(resultSet.getInt("userId"));
 
                 list.add(blog);
