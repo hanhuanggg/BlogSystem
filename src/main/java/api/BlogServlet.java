@@ -21,8 +21,10 @@ public class BlogServlet extends HttpServlet {
         List<Blog> blogs=new ArrayList<>();
         BlogDao blogDao=new BlogDao();
         blogs=blogDao.selectAll();
+        String str=blogs.toString();
         String jsonResp=objectMapper.writeValueAsString(blogs);
         System.out.println(jsonResp);
+        System.out.println(str);
         resp.getWriter().write(jsonResp);
 
     }
