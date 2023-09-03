@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/blog_list.css">
     <link rel="icon" type="image/x-icon" href="image/眼睛.png">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
  <body>
     <!-- 导航栏 -->
@@ -43,20 +44,55 @@
         </div>
         <!-- 右侧信息 -->
         <div class="container-right">
-            <!-- 表示一篇博客 -->
-            <div class="blog">
-                <!-- 博客标题 -->
-                <div class="title">我的第一篇博客</div>
-                <!-- 发布时间 -->
-                <div class="date">2023-02-27</div>
-                <!-- 博客的摘要 -->
-                <div class="desc">
-                    从今天起, 我要认真敲代码. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate aspernatur iste totam modi doloremque, magnam iure, distinctio laboriosam eos nemo quaerat suscipit cum quidem recusandae numquam nulla voluptatum nihil quas?
-                </div>
-                <!-- 查看全文按钮 -->
-                <a href="blog_detail.html">查看全文 &gt;&gt; </a>
-            </div>
+            
         <div>
-    </div>
+
+   </div>
+   <script>
+    //当blog_list的网页被打开时,向客户端的后端代码发送get请求,请求获取数据库中的所有blogs 
+    //定义函数
+    function getBlogs(){
+        $.ajax({
+            type:'get',
+            url:'blog',
+            success:function(body){
+                let containerRight=document.querySelector('.container-right');
+
+                for(let blog of body){
+                    let blogDiv=document.createElement('div');
+                    blogDiv.className='blog';
+                    //title
+                    let titleDiv=document.createElement('div');
+                    titleDiv.className='title';
+                    titleDiv.innerHTML=blog.title;
+                    blogDiv.appendChild(titleDiv);
+
+                    //postTime
+                    let dateDiv=document.createElement('div');
+                    dateDiv.className='date';
+                    dateDiv.innerHTML=blog.postTime;
+                    blogDiv.appendChild(dateDiv);
+
+                    //description
+                    let descDiv=document.createElement('div');
+                    descDiv.classname='desc';
+                    descDiv.innerHTML=blog.content;
+                    blogDiv.appendChild(descDiv);
+
+                    //查看全文按钮
+                    let a=document.createElement('a');
+                    a.innerHTML='查看全文 &gt;&gt;';
+                    a.href='blog_detail.html?blogId'+ blog.blogId;
+                    blogDiv.appendChild(a);
+
+                    containerRight.appendChild(blogDiv);
+                }
+            }
+        })
+           }
+
+          //调用函数
+          getBlogs();
+   </script>
  </body>
 </html>

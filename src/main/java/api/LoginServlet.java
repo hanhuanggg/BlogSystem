@@ -22,21 +22,21 @@ public class LoginServlet extends HttpServlet {
         String password=req.getParameter("password");
 
         if(username==null||"".equals(username)||password==null||"".equals(password)){
-            String html="<h3>登录失败!缺少username 或者 password 字段</h3>";
+            String html="<h3>Login failed,please input password</h3>";
             resp.getWriter().write(html);
             return;
         }
 
         //2.读数据库,查看数据是否存在切密码正确
         UserDAO userDAO=new UserDAO();
-        User user= userDAO.selectByUserName("makabazi");
+        User user= userDAO.selectByUserName(username);
         if(user==null){
-            String html="<h3>登录失败!用户名或者密码错误</h3>";
+            String html="<h3>Login failed,userId or password wrong</h3>";
             resp.getWriter().write(html);
             return;
         }
         if(!password.equals(user.getPassword())){
-            String html="<h3>登录失败!用户名或者密码错误</h3>";
+            String html="<h3>Login failed,userId or password wrong</h3>";
             resp.getWriter().write(html);
             return ;
         }

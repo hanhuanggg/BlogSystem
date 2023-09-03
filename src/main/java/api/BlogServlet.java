@@ -26,14 +26,14 @@ public class BlogServlet extends HttpServlet {
         blogs=blogDao.selectAll();
         String str=blogs.toString();
         String jsonResp=objectMapper.writeValueAsString(blogs);
-        resp.setContentType("application/json;charset=utf8");
+        resp.setContentType("application/json;charset=utf-8");
         resp.getWriter().write(jsonResp);
         }else {
             //博客详情页
            Blog blog=new Blog();
            blog=blogDao.selectById(Integer.parseInt(blogId));
            String jsonResp=objectMapper.writeValueAsString(blog);
-           resp.setContentType("application/json;charset=utf8");
+           resp.setContentType("application/json;charset=utf-8");
            resp.getWriter().write(jsonResp);
         }
 
