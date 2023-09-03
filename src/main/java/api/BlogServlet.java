@@ -18,18 +18,29 @@ public class BlogServlet extends HttpServlet {
     ObjectMapper objectMapper=new ObjectMapper();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Blog> blogs=new ArrayList<>();
+        String blogId=req.getParameter("blogId");
         BlogDao blogDao=new BlogDao();
+        if(blogId==null){
+            //博客列表页
+        List<Blog> blogs=new ArrayList<>();
         blogs=blogDao.selectAll();
         String str=blogs.toString();
         String jsonResp=objectMapper.writeValueAsString(blogs);
-        System.out.println(jsonResp);
-        System.out.println(str);
+        resp.setContentType("application/json;charset=utf8");
         resp.getWriter().write(jsonResp);
+        }else {
+            //博客详情页
+           Blog blog=new Blog();
+           blog=blogDao.selectById(Integer.parseInt(blogId));
+           String jsonResp=objectMapper.writeValueAsString(blog);
+           resp.setContentType("application/json;charset=utf8");
+           resp.getWriter().write(jsonResp);
+        }
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
     }
 }
