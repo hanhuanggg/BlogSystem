@@ -41,7 +41,8 @@
     </div>
 
     <script>
-        var editor = editormd("editor", {
+
+       var editor = editormd("editor", {
             // 这里的尺寸必须在这里设置. 设置样式会被 editormd 自动覆盖掉. 
             width: "100%",
             // 设定编辑器高度
@@ -51,6 +52,22 @@
             // 指定 editor.md 依赖的插件路径
             path: "editor.md/lib/"
         });
+
+          function checkLogin(){
+            $.ajax({
+                type:'get',
+                url:'login',
+                success: function(body){
+                   if(body.userId&&body.userId>0){
+                    console.log("the user has already logined in")
+                   } else{
+                    location.assign('blog_login.html');
+                   }
+                }
+            });
+          }
+
+          checkLogin();
     </script>
 </body>
 </html>

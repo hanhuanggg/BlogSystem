@@ -1,5 +1,6 @@
 package api;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import model.User;
 import model.UserDAO;
 
@@ -14,6 +15,7 @@ import java.io.IOException;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
+    ObjectMapper objectMapper=new ObjectMapper();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf8");
@@ -47,6 +49,33 @@ public class LoginServlet extends HttpServlet {
 
         resp.sendRedirect("blog_list.html");
 
+    }
+
+    /**
+     * 该方法获取登录状态
+     */
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json;charset:utf-8");
+       HttpSession session=req.getSession(false);
+       if(session==null){
+           //则说明没有登录,返回一个空对象
+           User user=new User();
+           String respJson=objectMapper.writeValueAsString(user);
+           resp.getWriter().write(respJson);
+           return;
+       }
+
+       User user=(User)session.getAttribute("user");
+       if(user==null){
+           user=new User();
+           String respJson=objectMapper.writeValueAsString(user);
+           resp.getWriter().write(respJson);
+           return;
+       }
+
+       String respJson=objectMapper.writeValueAsString(user);
+       resp.getWriter().write(respJson);
     }
 }
 

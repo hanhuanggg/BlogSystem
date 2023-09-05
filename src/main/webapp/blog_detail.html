@@ -73,6 +73,22 @@
                 editormd.markdownToHTML('content',{markdown:body.content});
             }
         })
+
+          function checkLogin(){
+            $.ajax({
+                type:'get',
+                url:'login',
+                success: function(body){
+                   if(body.userId&&body.userId>0){
+                    console.log("the user has already logined in")
+                   } else{
+                    location.assign('blog_login.html');
+                   }
+                }
+            })
+          }
+          checkLogin();
+ 
     </script>
 </body>
 </html>
