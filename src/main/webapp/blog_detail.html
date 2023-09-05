@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/blog_detail.css">
     <link rel="icon" type="image/x-icon" href="image/眼睛.png">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- editor依赖于jQuery -->
+    <link rel="stylesheet" href="editor.md/css/editormd.min.css" />
+    <script src="editor.md/lib/marked.min.js"></script>
+    <script src="editor.md/lib/prettify.min.js"></script>
+    <script src="editor.md/editormd.js"></script>
 </head>
 <body>
     <!-- 导航栏 -->
@@ -44,28 +50,29 @@
         <!-- 右侧信息 -->
         <div class="container-right">
             <!-- 博客标题 -->
-            <h3 class="title">我的第一篇博客</h3>
+            <h3 class="title"></h3>
             <!-- 博客发布时间 -->
-            <div class="date">2023-02-27</div>
+            <div class="date"></div>
             <!-- 博客正文 -->
-            <div class="content">
-                <p>
-                    从今天开始, 我要认真敲代码 Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur voluptatem voluptatibus nostrum itaque corrupti illum, quisquam distinctio labore expedita. Rem laboriosam repellat esse quia minima optio obcaecati alias eum.
-                    从今天开始, 我要认真敲代码 Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur voluptatem voluptatibus nostrum itaque corrupti illum, quisquam distinctio labore expedita. Rem laboriosam repellat esse quia minima optio obcaecati alias eum.
-                    从今天开始, 我要认真敲代码 Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur voluptatem voluptatibus nostrum itaque corrupti illum, quisquam distinctio labore expedita. Rem laboriosam repellat esse quia minima optio obcaecati alias eum.
-                </p>
-                <p>
-                    从今天开始, 我要认真敲代码 Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur voluptatem voluptatibus nostrum itaque corrupti illum, quisquam distinctio labore expedita. Rem laboriosam repellat esse quia minima optio obcaecati alias eum.
-                    从今天开始, 我要认真敲代码 Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur voluptatem voluptatibus nostrum itaque corrupti illum, quisquam distinctio labore expedita. Rem laboriosam repellat esse quia minima optio obcaecati alias eum.
-                    从今天开始, 我要认真敲代码 Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur voluptatem voluptatibus nostrum itaque corrupti illum, quisquam distinctio labore expedita. Rem laboriosam repellat esse quia minima optio obcaecati alias eum.
-                </p>
-                <p>
-                    从今天开始, 我要认真敲代码 Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur voluptatem voluptatibus nostrum itaque corrupti illum, quisquam distinctio labore expedita. Rem laboriosam repellat esse quia minima optio obcaecati alias eum.
-                    从今天开始, 我要认真敲代码 Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur voluptatem voluptatibus nostrum itaque corrupti illum, quisquam distinctio labore expedita. Rem laboriosam repellat esse quia minima optio obcaecati alias eum.
-                    从今天开始, 我要认真敲代码 Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur voluptatem voluptatibus nostrum itaque corrupti illum, quisquam distinctio labore expedita. Rem laboriosam repellat esse quia minima optio obcaecati alias eum.
-                </p>
-            </div>
-        </div>
+            <div id="content"></div>
+       </div>
     </div>
+    <script>
+        $.ajax({
+            type:'get',
+            url:'blog'+location.search,
+            success:function(body){
+                //update the title
+                let titleDiv=document.querySelector('.container-right .title');
+                titleDiv.innerHTML=body.title;
+                //update the date
+                let dateDiv=document.querySelector('.date');
+                dateDiv.innerHTML=body.postTime;
+                //update the content
+                //将原始内容渲染了一下
+                editormd.markdownToHTML('content',{markdown:body.content});
+            }
+        })
+    </script>
 </body>
 </html>
