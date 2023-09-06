@@ -81,10 +81,12 @@
                 success: function(body){
                    if(body.userId&&body.userId>0){
                     console.log("the user has already logined in")
+                    let h3=document.querySelector('.container-left .card h3');
+                    h3.innerHTML=body.username;
                    } else{
                     location.assign('blog_login.html');
                    }
-                }
+               }
             })
           }
           checkLogin();
