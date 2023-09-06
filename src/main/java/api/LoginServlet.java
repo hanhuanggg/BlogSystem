@@ -2,7 +2,7 @@ package api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.User;
-import model.UserDAO;
+import model.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
         }
 
         //2.读数据库,查看数据是否存在切密码正确
-        UserDAO userDAO=new UserDAO();
+        UserDao userDAO=new UserDao();
         User user= userDAO.selectByUserName(username);
         if(user==null){
             String html="<h3>Login failed,userId or password wrong</h3>";

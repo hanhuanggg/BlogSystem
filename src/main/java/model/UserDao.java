@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserDAO {
+public class UserDao {
     public User selectByUserID(int userId){
         User user=new User();
         Connection connection=null;
