@@ -19,7 +19,7 @@
     <!-- 导航栏 -->
     <div class="nav">
         <img src="image/head.JPG" alt="">
-        <span class="title">我的博客系统</span>
+        <span class="title">MyBlogSystem</span>
         <!-- 这个标签仅仅用于占位, 把这几个 model.Blog 标签挤到右侧去 -->
         <div class="spacer"></div>
         <a href="blog_list.html">主页</a>
@@ -80,6 +80,7 @@
                 url:'login',
                 success: function(body){
                    if(body.userId&&body.userId>0){
+                    console.log(body.username);
                     console.log("the user has already logined in")
                   } else{
                     location.assign('blog_login.html');
@@ -94,8 +95,10 @@
                 type:'get',
                 url:'author'+location.search,
                 success: function(body){
+                    console.log(body);
                     let h3=document.querySelector('.container-left .card h3');
                     h3.innerHTML=body.username;
+                    console.log(body.username);
                 }
             });
           }
