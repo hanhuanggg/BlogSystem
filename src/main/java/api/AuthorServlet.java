@@ -20,7 +20,7 @@ public class AuthorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String blogId=req.getParameter("blogId");
         if(blogId==null){
-            resp.setContentType("text/html;charset=utf-8");
+            resp.setContentType("text/html;charset=utf8");
             resp.getWriter().write("the parameter is illegal,lack of \'blogId\'");
             return;
         }
@@ -29,7 +29,7 @@ public class AuthorServlet extends HttpServlet {
         Blog blog=blogDao.selectById(Integer.parseInt(blogId));
         if(blog==null){
             //说明数据库中没有对应的blog
-            resp.setContentType("text/html;charset=utf-8");
+            resp.setContentType("text/html;charset=utf8");
             resp.getWriter().write("no found pointed blog:blogId="+blogId);
             return;
         }
@@ -38,7 +38,7 @@ public class AuthorServlet extends HttpServlet {
         UserDao userDao=new UserDao();
         User author=userDao.selectByUserID(blog.getUserId());
         String respJson=objectMapper.writeValueAsString(author);
-        resp.setContentType("text/html;charset=utf-8");
+        resp.setContentType("text/html;charset=utf8");
         resp.getWriter().write(respJson);
     }
 }

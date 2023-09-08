@@ -35,7 +35,7 @@
                 <!-- 用户头像 -->
                 <img src="image/head.JPG" alt="">
                 <!-- 用户名 -->
-                <h3>玛卡巴子</h3>
+                <h3></h3>
                 <a href="#">github 地址</a>
                 <div class="counter">
                     <span>文章</span>
@@ -72,7 +72,7 @@
                 //将原始内容渲染了一下
                 editormd.markdownToHTML('content',{markdown:body.content});
             }
-        })
+        });
 
           function checkLogin(){
             $.ajax({
@@ -81,16 +81,26 @@
                 success: function(body){
                    if(body.userId&&body.userId>0){
                     console.log("the user has already logined in")
-                    let h3=document.querySelector('.container-left .card h3');
-                    h3.innerHTML=body.username;
-                   } else{
+                  } else{
                     location.assign('blog_login.html');
                    }
                }
-            })
+            });
           }
           checkLogin();
  
+          function getAuthor(){
+            $.ajax({
+                type:'get',
+                url:'author'+location.search,
+                success: function(body){
+                    let h3=document.querySelector('.container-left .card h3');
+                    h3.innerHTML=body.username;
+                }
+            });
+          }
+
+          getAuthor();
     </script>
 </body>
 </html>
