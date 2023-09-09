@@ -29,15 +29,17 @@
     </div>
     <!-- 编辑区的容器 -->
     <div class="blog-edit-container">
+        <form action="blog" method="post" style="height:100%;">
         <!-- 博客标题编辑区 -->
         <div class="title">
-            <input type="text" id="title" placeholder="输入文章标题">
-            <button id="submit">发布文章</button>
+            <input type="text" id="title" placeholder="Input the title" name="title">
+            <input type="submit" id="submit" value="Post Article">
         </div>
         <!-- 博客编辑器, 这里用 id 是为了和 markdown 编辑器对接, 而设置的 -->
         <div id="editor">
-
-        </div>
+            <textarea name="content" style="display: none;"></textarea>
+       </div>
+        </form>
     </div>
 
     <script>

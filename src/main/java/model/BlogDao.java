@@ -27,7 +27,7 @@ public class BlogDao {
             statement.setString(1,blog.getTitle());
             statement.setString(2,blog.getContent());
             statement.setTimestamp(3,blog.getPostTimestamp());
-            statement.setInt(4,blog.getBlogId());
+            statement.setInt(4,blog.getUserId());
             //3.执行语句
             statement.executeUpdate();
         } catch (SQLException e) {
