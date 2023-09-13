@@ -26,7 +26,7 @@
         <a href="blog_edit.html">Post a Blog</a>
         <a href="logout">Logout</a>
         <!-- 点击向服务器发送delete请求 -->
-        <button id="deleteButton">delete</button>
+        <button id="deleteButton" class="deleteButton">delete</button>
    </div>
     <!-- 页面主体部分 -->
     <div class="container">
@@ -120,7 +120,7 @@
                 type:'delete',
                 url:'blog'+location.search,
                 success:function(body){
-                    console.log("success");
+                    window.location.href = "blog_list.html";
                 }   
             });
                              });

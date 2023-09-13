@@ -94,7 +94,7 @@ public class BlogServlet extends HttpServlet {
        }
        BlogDao blogDao=new BlogDao();
        blogDao.deleteById(Integer.parseInt(blogId));
-       resp.sendRedirect("blog_list.html");
+       resp.setStatus(200);
    }
 }
 

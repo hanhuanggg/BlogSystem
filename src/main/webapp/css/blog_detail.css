@@ -16,3 +16,10 @@
     padding: 10px 30px;
 }
 
+.nav button {
+    color:#FFFFFF;
+    background-color: #32323266;
+    border:none;
+    padding:0 10px;
+    
+}
