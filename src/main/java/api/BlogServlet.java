@@ -82,4 +82,20 @@ public class BlogServlet extends HttpServlet {
         resp.sendRedirect("blog_list.html");
 
     }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       String blogId=req.getParameter("blogId");
+
+       if(blogId==null){
+           resp.setContentType("text/html;charset=utf8");
+           resp.getWriter().write("lack of necessary parameter \'blogId\'");
+           return;
+       }
+       BlogDao blogDao=new BlogDao();
+       blogDao.deleteById(Integer.parseInt(blogId));
+       resp.sendRedirect("blog_list.html");
+   }
 }
+
+

@@ -25,7 +25,9 @@
         <a href="blog_list.html">Home Page</a>
         <a href="blog_edit.html">Post a Blog</a>
         <a href="logout">Logout</a>
-    </div>
+        <!-- 点击向服务器发送delete请求 -->
+        <button id="deleteButton">delete</button>
+   </div>
     <!-- 页面主体部分 -->
     <div class="container">
         <!-- 左侧信息 -->
@@ -55,6 +57,7 @@
             <div class="date"></div>
             <!-- 博客正文 -->
             <div id="content"></div>
+            
        </div>
     </div>
     <script>
@@ -105,6 +108,23 @@
 
           getAuthor();
 
+
+
+          //删除blog操作
+          {
+        // 获取按钮元素
+        var deleteButton = document.getElementById("deleteButton");
+        // 添加点击事件处理程序
+        deleteButton.addEventListener("click", function () {
+            $.ajax({
+                type:'delete',
+                url:'blog'+location.search,
+                success:function(body){
+                    console.log("success");
+                }   
+            });
+                             });
+          }
     </script>
 </body>
 </html>

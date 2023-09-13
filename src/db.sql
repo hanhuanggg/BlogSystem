@@ -27,7 +27,6 @@ insert into user values
 (7,"Kendrick Lamar","goat");
 
 insert into blog values
-(1,"Up to Something","歌曲名：Up To Something (Explicit)，歌手名：Metro Boomin/Travis Scott/Young Thug，专辑名：NOT ALL HEROES WEAR CAPES (Deluxe) [Explicit]",now(),3),
+(1,"Up to Something"," CAPES (Deluxe) [Explicit]",now(),3),
 (2,"Neighbor","cole is on the mission",now(),114514),
 (3,"10 Freaky Girl","let 21 tell me you're a pussyyyyyyy~",now(),21);
-(4,"Rich Spirit","Dun duh duh duh duh",now(),7)
